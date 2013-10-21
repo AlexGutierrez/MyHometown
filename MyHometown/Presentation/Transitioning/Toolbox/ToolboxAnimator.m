@@ -9,6 +9,8 @@
 #import "ToolboxAnimator.h"
 #import "ToolboxViewController.h"
 
+#define TOOLBOX_BOUNDS CGRectMake(0, 0, 703, 350)
+
 @interface ToolboxAnimator () <UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate, UIViewControllerInteractiveTransitioning>
 
 @property (nonatomic, assign, getter = isInteractive) BOOL interactive;
@@ -151,7 +153,7 @@
         UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
         UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
         
-        CGRect endFrame = [[transitionContext containerView] bounds];
+        CGRect endFrame = TOOLBOX_BOUNDS;
         
         if (self.isPresenting) {
             // The order of these matters – determines the view hierarchy order.
@@ -159,7 +161,7 @@
             [transitionContext.containerView addSubview:toViewController.view];
             
             CGRect startFrame = endFrame;
-            startFrame.origin.x -= CGRectGetWidth(endFrame);
+            startFrame.origin.y -= CGRectGetHeight(endFrame);
             
             toViewController.view.frame = startFrame;
             
@@ -173,7 +175,7 @@
             [transitionContext.containerView addSubview:toViewController.view];
             [transitionContext.containerView addSubview:fromViewController.view];
             
-            endFrame.origin.x -= CGRectGetWidth([[transitionContext containerView] bounds]);
+            endFrame.origin.y -= CGRectGetHeight([[transitionContext containerView] bounds]);
             
             [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
                 fromViewController.view.frame = endFrame;
@@ -201,7 +203,7 @@
         [transitionContext.containerView addSubview:fromViewController.view];
         [transitionContext.containerView addSubview:toViewController.view];
         
-        endFrame.origin.x -= CGRectGetWidth(endFrame);
+        endFrame.origin.y -= CGRectGetHeight(endFrame);
     }
     else {
         [transitionContext.containerView addSubview:toViewController.view];
@@ -222,7 +224,7 @@
     
     // Presenting goes from 0...1 and dismissing goes from 1...0
     CGRect containerViewFrame = [[transitionContext containerView] bounds];
-    CGRect frame = CGRectOffset(containerViewFrame, -CGRectGetWidth(containerViewFrame) * (1.0f - percentComplete), 0);
+    CGRect frame = CGRectOffset(containerViewFrame, -CGRectGetHeight(containerViewFrame) * (1.0f - percentComplete), 0);
     
     if (self.isPresenting)
     {
@@ -250,7 +252,7 @@
         }];
     }
     else {
-        endFrame = CGRectOffset(endFrame, -CGRectGetWidth(endFrame), 0);
+        endFrame = CGRectOffset(endFrame, -CGRectGetHeight(endFrame), 0);
         
         [UIView animateWithDuration:0.5f animations:^{
             fromViewController.view.frame = endFrame;
@@ -271,7 +273,7 @@
     
     if (self.isPresenting)
     {
-        endFrame = CGRectOffset(endFrame, -CGRectGetWidth(endFrame), 0);
+        endFrame = CGRectOffset(endFrame, -CGRectGetHeight(endFrame), 0);
         
         [UIView animateWithDuration:0.5f animations:^{
             toViewController.view.frame = endFrame;

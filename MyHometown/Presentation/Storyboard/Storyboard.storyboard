@@ -23,7 +23,7 @@
         <!--Main View Controller - My Hometown-->
         <scene sceneID="BzC-KT-isB">
             <objects>
-                <viewController id="UNS-nn-QhF" customClass="MainViewController" sceneMemberID="viewController">
+                <viewController providesPresentationContextTransitionStyle="YES" id="UNS-nn-QhF" customClass="MainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="l9Q-7b-PbL"/>
                         <viewControllerLayoutGuide type="bottom" id="p5a-Yr-jzZ"/>
@@ -50,24 +50,22 @@
         <!--Toolbox View Controller-->
         <scene sceneID="of6-LU-gln">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CGt-Gy-Dpy" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="ToolboxViewController" modalPresentationStyle="currentContext" id="NfU-dW-48N" customClass="ToolboxViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EIP-o2-NMQ"/>
                         <viewControllerLayoutGuide type="bottom" id="XZN-sI-2W3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1Zc-gf-C4N">
-                        <rect key="frame" x="0.0" y="0.0" width="350" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="350" height="703"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.86045848540000003" green="0.13036785679999999" blue="0.065555003220000005" alpha="1" colorSpace="deviceRGB"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CGt-Gy-Dpy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1062" y="-29"/>
+            <point key="canvasLocation" x="958" y="35"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
