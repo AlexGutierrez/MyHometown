@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="UNS-nn-QhF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="9ji-eC-0dU">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="gYb-YJ-xdp">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="9ji-eC-0dU" sceneMemberID="viewController">
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XqD-xH-hxu">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="UNS-nn-QhF" kind="relationship" relationship="rootViewController" id="dWu-Lo-hvm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eIG-Rp-FqE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1301" y="-29"/>
+        </scene>
+        <!--Main View Controller - My Hometown-->
         <scene sceneID="BzC-KT-isB">
             <objects>
-                <viewController id="UNS-nn-QhF" sceneMemberID="viewController">
+                <viewController id="UNS-nn-QhF" customClass="MainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="l9Q-7b-PbL"/>
                         <viewControllerLayoutGuide type="bottom" id="p5a-Yr-jzZ"/>
@@ -18,11 +34,40 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
+                    <navigationItem key="navigationItem" title="My Hometown" id="JwS-Yh-hD5">
+                        <barButtonItem key="leftBarButtonItem" title="Toggle Toolbox" id="x9P-bH-CeK">
+                            <connections>
+                                <action selector="toggleToolbox:" destination="UNS-nn-QhF" id="LBU-sL-zhC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JYy-9X-MDi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="206" y="-155"/>
+            <point key="canvasLocation" x="-114" y="-29"/>
+        </scene>
+        <!--Toolbox View Controller-->
+        <scene sceneID="of6-LU-gln">
+            <objects>
+                <viewController storyboardIdentifier="ToolboxViewController" modalPresentationStyle="currentContext" id="NfU-dW-48N" customClass="ToolboxViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EIP-o2-NMQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="XZN-sI-2W3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1Zc-gf-C4N">
+                        <rect key="frame" x="0.0" y="0.0" width="350" height="768"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.86045848540000003" green="0.13036785679999999" blue="0.065555003220000005" alpha="1" colorSpace="deviceRGB"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CGt-Gy-Dpy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1062" y="-29"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

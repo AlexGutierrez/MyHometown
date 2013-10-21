@@ -29,7 +29,6 @@
 		7ADF721C18156A18000A6838 /* SampleTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF721818156A18000A6838 /* SampleTranslator.m */; };
 		7ADF770218156BC0000A6838 /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF770118156BC0000A6838 /* Entity.m */; };
 		7ADF770418156BE8000A6838 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ADF770318156BE8000A6838 /* Storyboard.storyboard */; };
-		7ADF770718156BFD000A6838 /* SampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF770618156BFD000A6838 /* SampleViewController.m */; };
 		7ADF770A18156C20000A6838 /* SampleDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF770918156C20000A6838 /* SampleDTO.m */; };
 		7ADF7734181575AC000A6838 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF7725181575AC000A6838 /* DDAbstractDatabaseLogger.m */; };
 		7ADF7735181575AC000A6838 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF7727181575AC000A6838 /* DDASLLogger.m */; };
@@ -66,6 +65,10 @@
 		7ADF7790181575C4000A6838 /* MagicalRecord+ShorthandSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF7773181575C4000A6838 /* MagicalRecord+ShorthandSupport.m */; };
 		7ADF7791181575C4000A6838 /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF7775181575C4000A6838 /* MagicalRecord.m */; };
 		7ADF77921815763E000A6838 /* MyHometownTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AB4CC311811FC4600235A8E /* MyHometownTests-Info.plist */; };
+		7ADF77A818157DE9000A6838 /* GenericViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF77A118157DE9000A6838 /* GenericViewController.m */; };
+		7ADF77A918157DE9000A6838 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF77A418157DE9000A6838 /* MainViewController.m */; };
+		7ADF77AA18157DE9000A6838 /* ToolboxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF77A718157DE9000A6838 /* ToolboxViewController.m */; };
+		7ADF77AF18158125000A6838 /* ToolboxAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF77AE18158125000A6838 /* ToolboxAnimator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,7 +105,6 @@
 		7ADF71F818156A11000A6838 /* Entity+SampleCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Entity+SampleCategory.m"; sourceTree = "<group>"; };
 		7ADF71FA18156A11000A6838 /* ApplicationConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationConstants.h; sourceTree = "<group>"; };
 		7ADF71FB18156A11000A6838 /* LogConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogConstants.h; sourceTree = "<group>"; };
-		7ADF71FC18156A11000A6838 /* SegueConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegueConstants.h; sourceTree = "<group>"; };
 		7ADF71FE18156A11000A6838 /* SampleEnumsFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleEnumsFile.h; sourceTree = "<group>"; };
 		7ADF720018156A11000A6838 /* AlertViewsFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertViewsFactory.h; sourceTree = "<group>"; };
 		7ADF720118156A11000A6838 /* AlertViewsFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertViewsFactory.m; sourceTree = "<group>"; };
@@ -110,14 +112,11 @@
 		7ADF720418156A11000A6838 /* LogHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogHelper.m; sourceTree = "<group>"; };
 		7ADF720618156A11000A6838 /* SampleMigrationPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleMigrationPolicy.h; sourceTree = "<group>"; };
 		7ADF720718156A11000A6838 /* SampleMigrationPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleMigrationPolicy.m; sourceTree = "<group>"; };
-		7ADF720918156A11000A6838 /* SampleProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleProtocol.h; sourceTree = "<group>"; };
 		7ADF721718156A18000A6838 /* SampleTranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleTranslator.h; sourceTree = "<group>"; };
 		7ADF721818156A18000A6838 /* SampleTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleTranslator.m; sourceTree = "<group>"; };
 		7ADF770018156BC0000A6838 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 		7ADF770118156BC0000A6838 /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
 		7ADF770318156BE8000A6838 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
-		7ADF770518156BFD000A6838 /* SampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleViewController.h; sourceTree = "<group>"; };
-		7ADF770618156BFD000A6838 /* SampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleViewController.m; sourceTree = "<group>"; };
 		7ADF770818156C20000A6838 /* SampleDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleDTO.h; sourceTree = "<group>"; };
 		7ADF770918156C20000A6838 /* SampleDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleDTO.m; sourceTree = "<group>"; };
 		7ADF7724181575AC000A6838 /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDAbstractDatabaseLogger.h; path = "../../ProofOfConcept/External Sources/CocoaLumberjack/Lumberjack/DDAbstractDatabaseLogger.h"; sourceTree = "<group>"; };
@@ -189,6 +188,16 @@
 		7ADF7775181575C4000A6838 /* MagicalRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicalRecord.m; sourceTree = "<group>"; };
 		7ADF7776181575C4000A6838 /* MagicalRecordShorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecordShorthand.h; sourceTree = "<group>"; };
 		7ADF7777181575C4000A6838 /* CoreData+MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CoreData+MagicalRecord.h"; path = "../../ProofOfConcept/External Sources/Magical Record/MagicalRecord/CoreData+MagicalRecord.h"; sourceTree = "<group>"; };
+		7ADF77A018157DE9000A6838 /* GenericViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericViewController.h; sourceTree = "<group>"; };
+		7ADF77A118157DE9000A6838 /* GenericViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericViewController.m; sourceTree = "<group>"; };
+		7ADF77A318157DE9000A6838 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		7ADF77A418157DE9000A6838 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		7ADF77A618157DE9000A6838 /* ToolboxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolboxViewController.h; sourceTree = "<group>"; };
+		7ADF77A718157DE9000A6838 /* ToolboxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolboxViewController.m; sourceTree = "<group>"; };
+		7ADF77AD18158125000A6838 /* ToolboxAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolboxAnimator.h; sourceTree = "<group>"; };
+		7ADF77AE18158125000A6838 /* ToolboxAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolboxAnimator.m; sourceTree = "<group>"; };
+		7ADF77B018159081000A6838 /* ToolboxViewControllerPanTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolboxViewControllerPanTarget.h; sourceTree = "<group>"; };
+		7ADF77B31815924B000A6838 /* ViewControllerIdentifiers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerIdentifiers.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -356,7 +365,7 @@
 			children = (
 				7ADF71FA18156A11000A6838 /* ApplicationConstants.h */,
 				7ADF71FB18156A11000A6838 /* LogConstants.h */,
-				7ADF71FC18156A11000A6838 /* SegueConstants.h */,
+				7ADF77B31815924B000A6838 /* ViewControllerIdentifiers.h */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -399,7 +408,7 @@
 		7ADF720818156A11000A6838 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				7ADF720918156A11000A6838 /* SampleProtocol.h */,
+				7ADF77B018159081000A6838 /* ToolboxViewControllerPanTarget.h */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -409,6 +418,7 @@
 			children = (
 				7ADF720F18156A18000A6838 /* Controllers */,
 				7ADF721118156A18000A6838 /* Storyboard */,
+				7ADF77AB18157F9C000A6838 /* Transitioning */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -416,8 +426,9 @@
 		7ADF720F18156A18000A6838 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				7ADF770518156BFD000A6838 /* SampleViewController.h */,
-				7ADF770618156BFD000A6838 /* SampleViewController.m */,
+				7ADF779F18157DE9000A6838 /* General */,
+				7ADF77A218157DE9000A6838 /* Main */,
+				7ADF77A518157DE9000A6838 /* Toolbox */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -600,6 +611,50 @@
 			path = "../../ProofOfConcept/External Sources/Magical Record/MagicalRecord/Core";
 			sourceTree = "<group>";
 		};
+		7ADF779F18157DE9000A6838 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				7ADF77A018157DE9000A6838 /* GenericViewController.h */,
+				7ADF77A118157DE9000A6838 /* GenericViewController.m */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		7ADF77A218157DE9000A6838 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				7ADF77A318157DE9000A6838 /* MainViewController.h */,
+				7ADF77A418157DE9000A6838 /* MainViewController.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		7ADF77A518157DE9000A6838 /* Toolbox */ = {
+			isa = PBXGroup;
+			children = (
+				7ADF77A618157DE9000A6838 /* ToolboxViewController.h */,
+				7ADF77A718157DE9000A6838 /* ToolboxViewController.m */,
+			);
+			path = Toolbox;
+			sourceTree = "<group>";
+		};
+		7ADF77AB18157F9C000A6838 /* Transitioning */ = {
+			isa = PBXGroup;
+			children = (
+				7ADF77AC18157FC0000A6838 /* Toolbox */,
+			);
+			path = Transitioning;
+			sourceTree = "<group>";
+		};
+		7ADF77AC18157FC0000A6838 /* Toolbox */ = {
+			isa = PBXGroup;
+			children = (
+				7ADF77AD18158125000A6838 /* ToolboxAnimator.h */,
+				7ADF77AE18158125000A6838 /* ToolboxAnimator.m */,
+			);
+			path = Toolbox;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -698,6 +753,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ADF77AA18157DE9000A6838 /* ToolboxViewController.m in Sources */,
 				7ADF7787181575C4000A6838 /* NSManagedObjectContext+MagicalThreading.m in Sources */,
 				7ADF720C18156A11000A6838 /* LogHelper.m in Sources */,
 				7ADF777D181575C4000A6838 /* NSRelationshipDescription+MagicalDataImport.m in Sources */,
@@ -710,8 +766,10 @@
 				7ADF777C181575C4000A6838 /* NSObject+MagicalDataImport.m in Sources */,
 				7ADF778A181575C4000A6838 /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
 				7ADF7778181575C4000A6838 /* MagicalImportFunctions.m in Sources */,
+				7ADF77A818157DE9000A6838 /* GenericViewController.m in Sources */,
 				7ADF7779181575C4000A6838 /* NSAttributeDescription+MagicalDataImport.m in Sources */,
 				7ADF7736181575AC000A6838 /* DDFileLogger.m in Sources */,
+				7ADF77AF18158125000A6838 /* ToolboxAnimator.m in Sources */,
 				7ADF778E181575C4000A6838 /* MagicalRecord+Options.m in Sources */,
 				7ADF777A181575C4000A6838 /* NSEntityDescription+MagicalDataImport.m in Sources */,
 				7ADF71F418156A0B000A6838 /* GenericService.m in Sources */,
@@ -720,6 +778,7 @@
 				7ADF7785181575C4000A6838 /* NSManagedObjectContext+MagicalRecord.m in Sources */,
 				7ADF7782181575C4000A6838 /* NSManagedObject+MagicalRecord.m in Sources */,
 				7A480A251815679F0085A8EC /* main.m in Sources */,
+				7ADF77A918157DE9000A6838 /* MainViewController.m in Sources */,
 				7ADF7790181575C4000A6838 /* MagicalRecord+ShorthandSupport.m in Sources */,
 				7ADF778F181575C4000A6838 /* MagicalRecord+Setup.m in Sources */,
 				7ADF7781181575C4000A6838 /* NSManagedObject+MagicalFinders.m in Sources */,
@@ -727,7 +786,6 @@
 				7ADF7788181575C4000A6838 /* NSManagedObjectModel+MagicalRecord.m in Sources */,
 				7ADF7783181575C4000A6838 /* NSManagedObject+MagicalRequests.m in Sources */,
 				7ADF773A181575AC000A6838 /* DispatchQueueLogFormatter.m in Sources */,
-				7ADF770718156BFD000A6838 /* SampleViewController.m in Sources */,
 				7ADF7784181575C4000A6838 /* NSManagedObjectContext+MagicalObserving.m in Sources */,
 				7ADF7791181575C4000A6838 /* MagicalRecord.m in Sources */,
 				7ADF7734181575AC000A6838 /* DDAbstractDatabaseLogger.m in Sources */,
