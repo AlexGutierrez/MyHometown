@@ -1,0 +1,6 @@
+[submodule "External Sources/CocoaLumberjack"]
+	path = External Sources/CocoaLumberjack
+	url = https://github.com/robbiehanson/CocoaLumberjack.git
+[submodule "External Sources/Magical Record"]
+	path = External Sources/Magical Record
+	url = https://github.com/magicalpanda/MagicalRecord.git
