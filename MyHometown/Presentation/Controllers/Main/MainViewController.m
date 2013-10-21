@@ -12,7 +12,7 @@
 @interface MainViewController () <UIViewControllerTransitioningDelegate>
 
 @property (strong, nonatomic) ToolboxAnimator *toolboxAnimator;
-
+@property (weak, nonatomic) IBOutlet UIView *toolboxContainerView;
 @property (nonatomic) BOOL toolboxPresented;
 
 - (IBAction)toggleToolbox:(UIBarButtonItem *)sender;
@@ -28,43 +28,25 @@
     
     [super viewDidLoad];
     
-    self.toolboxAnimator = [[ToolboxAnimator alloc] initWithParentViewController:self];
+    self.toolboxAnimator = [[ToolboxAnimator alloc] initWithToolboxContainerView:self.toolboxContainerView andParentViewController:self];
     
-    UIScreenEdgePanGestureRecognizer *gestureRecognizer = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self.toolboxAnimator action:@selector(userDidEdgePan:)];
+    UIScreenEdgePanGestureRecognizer *gestureRecognizer = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self.toolboxAnimator action:@selector(userDidLeftEdgePan:)];
     gestureRecognizer.edges = UIRectEdgeLeft;
     [self.view addGestureRecognizer:gestureRecognizer];
-}
-
--(void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    [super prepareForSegue:segue sender:sender];
-    
-    UIViewController *detailViewController = segue.destinationViewController;
-    
-    detailViewController.transitioningDelegate = self;
-    detailViewController.modalPresentationStyle = UIModalPresentationCustom;
 }
 
 #pragma mark -
 #pragma mark Custom Accessors
 
-- (void)setToolboxPresented:(BOOL)toolboxPresented
-{
-    if (toolboxPresented != _toolboxPresented) {
-        
-        if (!_toolboxPresented) {
-            [self.toolboxAnimator presentToolbox];
+- (void)setToolboxPresented:(BOOL)toolboxPresented {
+    if (_toolboxPresented != toolboxPresented) {
+        if (_toolboxPresented) {
+            [self.toolboxAnimator completeToolboxHidingAnimation];
         }
         else {
-            [self.toolboxAnimator hideToolbox];
+            [self.toolboxAnimator completeToolboxPresentationAnimation];
         }
-        
         _toolboxPresented = toolboxPresented;
-        
     }
 }
 
@@ -74,7 +56,6 @@
 - (IBAction)toggleToolbox:(UIBarButtonItem *)sender {
     
     self.toolboxPresented = !self.toolboxPresented;
-    
 }
 
 @end

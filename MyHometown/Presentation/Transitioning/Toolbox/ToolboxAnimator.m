@@ -7,17 +7,18 @@
 //
 
 #import "ToolboxAnimator.h"
-#import "ToolboxViewController.h"
 
-#define TOOLBOX_BOUNDS CGRectMake(0, 0, 703, 350)
+#define TOOLBOX_FRAME CGRectMake(0, 64, 350, 704)
 
-@interface ToolboxAnimator () <UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate, UIViewControllerInteractiveTransitioning>
+@interface ToolboxAnimator ()
 
-@property (nonatomic, assign, getter = isInteractive) BOOL interactive;
-@property (nonatomic, assign, getter = isPresenting) BOOL presenting;
-@property (nonatomic, strong) id<UIViewControllerContextTransitioning> transitionContext;
-
+@property (nonatomic, getter = toolboxIsPresented) BOOL toolboxPresented;
+@property (strong, nonatomic) UIView *toolboxContainerView;
 @property (strong, nonatomic) UIViewController *parentViewController;
+
+- (void)presentToolbox:(BOOL)animated;
+- (void)hideToolbox:(BOOL)animated;
+- (void)updateToolboxFrame:(CGFloat)ratio;
 
 @end
 
@@ -26,10 +27,11 @@
 #pragma mark -
 #pragma mark Object Lifecycle
 
-- (instancetype)initWithParentViewController:(UIViewController *)viewController {
+- (id)initWithToolboxContainerView:(UIView *)toolboxContainerView andParentViewController:(UIViewController *)parentViewController {
     
     if (self = [super init]) {
-        self.parentViewController = viewController;
+        self.toolboxContainerView = toolboxContainerView;
+        self.parentViewController = parentViewController;
     }
     
     return self;
@@ -38,256 +40,108 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)presentToolbox {
-    self.presenting = YES;
+- (void)completeToolboxPresentationAnimation {
     
-    ToolboxViewController *toolboxViewController = [self.parentViewController.storyboard instantiateViewControllerWithIdentifier:TOOLBOX_VIEWCONTROLLER];
-    toolboxViewController.modalPresentationStyle = UIModalPresentationCustom;
-    toolboxViewController.transitioningDelegate = self;
-    toolboxViewController.panTarget = self;
-    [self.parentViewController presentViewController:toolboxViewController animated:YES completion:nil];
+    [self hideToolbox:NO];
+    [self presentToolbox:YES];
+    self.toolboxPresented = YES;
 }
 
-- (void)hideToolbox {
-    [self.parentViewController dismissViewControllerAnimated:YES completion:nil];
+- (void)completeToolboxHidingAnimation {
+    
+    [self presentToolbox:NO];
+    [self hideToolbox:YES];
+    self.toolboxPresented = NO;
+}
+
+#pragma mark -
+#pragma mark Toolbox Toggling Animation
+
+- (void)presentToolbox:(BOOL)animated
+{
+    if (animated) {
+        [UIView animateWithDuration:0.3 animations:^ {
+            CGRect endFrame = TOOLBOX_FRAME;
+            self.toolboxContainerView.frame = endFrame;
+        }];
+    }
+    else {
+        CGRect endFrame = TOOLBOX_FRAME;
+        self.toolboxContainerView.frame = endFrame;
+    }
+}
+
+- (void)hideToolbox:(BOOL)animated
+{
+    if (animated) {
+        [UIView animateWithDuration:0.3 animations:^ {
+            CGRect endFrame = CGRectOffset(TOOLBOX_FRAME, -CGRectGetWidth(self.toolboxContainerView.frame), 0);
+            self.toolboxContainerView.frame = endFrame;
+        }];
+    }
+    else {
+        CGRect endFrame = CGRectOffset(TOOLBOX_FRAME, -CGRectGetWidth(self.toolboxContainerView.frame), 0);
+        self.toolboxContainerView.frame = endFrame;
+    }
+}
+
+- (void)updateToolboxFrame:(CGFloat)ratio
+{
+    // Presenting goes from 0...1 and dismissing goes from 1...0
+    if (ratio <= 1.0 && ratio >= 0.0) {
+        CGRect frame = CGRectOffset(TOOLBOX_FRAME, -CGRectGetWidth(TOOLBOX_FRAME) * (1.0f - ratio), 0);
+        self.toolboxContainerView.frame = frame;
+    }
 }
 
 #pragma mark -
 #pragma mark Gesture Recognizers
 
-- (void)userDidEdgePan:(UIScreenEdgePanGestureRecognizer *)gestureRecognizer {
+- (void)userDidLeftEdgePan:(UIScreenEdgePanGestureRecognizer *)gestureRecognizer {
     
     CGPoint location = [gestureRecognizer locationInView:self.parentViewController.view];
     CGPoint velocity = [gestureRecognizer velocityInView:self.parentViewController.view];
     
     if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
-        // We're being invoked via a gesture recognizer – we are necessarily interactive
-        self.interactive = YES;
-        
-        // The side of the screen we're panning from determines whether this is a presentation (left) or dismissal (right)
         if (location.x < CGRectGetMidX(gestureRecognizer.view.bounds)) {
-            [self presentToolbox];
+            if (!self.toolboxIsPresented) {
+                [self hideToolbox:NO];
+            }
         }
         else {
-            [self hideToolbox];
+            if (self.toolboxIsPresented) {
+                [self presentToolbox:NO];
+            }
         }
     }
     else if (gestureRecognizer.state == UIGestureRecognizerStateChanged) {
         // Determine our ratio between the left edge and the right edge. This means our dismissal will go from 1...0.
-        CGFloat ratio = location.x / CGRectGetWidth(self.parentViewController.view.bounds);
-        [self updateInteractiveTransition:ratio];
+        CGFloat ratio = location.x / CGRectGetWidth(self.toolboxContainerView.bounds);
+        [self updateToolboxFrame:ratio];
     }
     else if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
-        // Depending on our state and the velocity, determine whether to cancel or complete the transition.
-        if (self.isPresenting) {
-            if (velocity.x > 0) {
-                [self finishInteractiveTransition];
-            }
-            else {
-                [self cancelInteractiveTransition];
-            }
-        }
-        else {
+        if (self.toolboxIsPresented) {
             if (velocity.x < 0) {
-                [self finishInteractiveTransition];
+                [self presentToolbox:YES];
+                self.toolboxPresented = YES;
             }
             else {
-                [self cancelInteractiveTransition];
+                [self hideToolbox:YES];
+                self.toolboxPresented = NO;
+            }
+        }
+        else {
+            if (velocity.x > 0) {
+                [self presentToolbox:YES];
+                self.toolboxPresented = YES;
+            }
+            else {
+                [self hideToolbox:YES];
+                self.toolboxPresented = NO;
             }
         }
     }
-
 }
 
-#pragma mark - 
-#pragma mark UIViewControllerTransitioningDelegate Methods
-
-- (id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
-                                                                   presentingController:(UIViewController *)presenting
-                                                                       sourceController:(UIViewController *)source {
-    return self;
-}
-
-- (id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
-    return self;
-}
-
-- (id <UIViewControllerInteractiveTransitioning>)interactionControllerForPresentation:(id <UIViewControllerAnimatedTransitioning>)animator {
-    if (self.isInteractive) {
-        return self;
-    }
-    
-    return nil;
-}
-
-- (id <UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id <UIViewControllerAnimatedTransitioning>)animator {
-    
-    if (self.isInteractive) {
-        return self;
-    }
-    
-    return nil;
-}
-
-#pragma mark -
-#pragma mark UIViewControllerAnimatedTransitioning Methods
-
-- (void)animationEnded:(BOOL)transitionCompleted {
-    // Reset to our default state
-    self.interactive = NO;
-    self.presenting = NO;
-    self.transitionContext = nil;
-}
-
-- (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext {
-    // Used only in non-interactive transitions, despite the documentation
-    return 0.3f;
-}
-
-// For non-interactive transitions
-- (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
-    if (self.isInteractive) {
-        // nop as per documentation
-    }
-    else {
-        UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-        UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-        
-        CGRect endFrame = TOOLBOX_BOUNDS;
-        
-        if (self.isPresenting) {
-            // The order of these matters – determines the view hierarchy order.
-            [transitionContext.containerView addSubview:fromViewController.view];
-            [transitionContext.containerView addSubview:toViewController.view];
-            
-            CGRect startFrame = endFrame;
-            startFrame.origin.y -= CGRectGetHeight(endFrame);
-            
-            toViewController.view.frame = startFrame;
-            
-            [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
-                toViewController.view.frame = endFrame;
-            } completion:^(BOOL finished) {
-                [transitionContext completeTransition:YES];
-            }];
-        }
-        else {
-            [transitionContext.containerView addSubview:toViewController.view];
-            [transitionContext.containerView addSubview:fromViewController.view];
-            
-            endFrame.origin.y -= CGRectGetHeight([[transitionContext containerView] bounds]);
-            
-            [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
-                fromViewController.view.frame = endFrame;
-            } completion:^(BOOL finished) {
-                [transitionContext completeTransition:YES];
-            }];
-        }
-    }
-}
-
-#pragma mark -
-#pragma mark UIViewControllerInteractiveTransitioning Methods
-
-// Just for the start of the interaction
-- (void)startInteractiveTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
-    self.transitionContext = transitionContext;
-    
-    UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    
-    CGRect endFrame = [[transitionContext containerView] bounds];
-    
-    if (self.isPresenting) {
-        // The order of these matters – determines the view hierarchy order.
-        [transitionContext.containerView addSubview:fromViewController.view];
-        [transitionContext.containerView addSubview:toViewController.view];
-        
-        endFrame.origin.y -= CGRectGetHeight(endFrame);
-    }
-    else {
-        [transitionContext.containerView addSubview:toViewController.view];
-        [transitionContext.containerView addSubview:fromViewController.view];
-    }
-    
-    toViewController.view.frame = endFrame;
-}
-
-#pragma mark -
-#pragma mark UIPercentDrivenInteractiveTransition Overridden Methods
-
-- (void)updateInteractiveTransition:(CGFloat)percentComplete {
-    id<UIViewControllerContextTransitioning> transitionContext = self.transitionContext;
-    
-    UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    
-    // Presenting goes from 0...1 and dismissing goes from 1...0
-    CGRect containerViewFrame = [[transitionContext containerView] bounds];
-    CGRect frame = CGRectOffset(containerViewFrame, -CGRectGetHeight(containerViewFrame) * (1.0f - percentComplete), 0);
-    
-    if (self.isPresenting)
-    {
-        toViewController.view.frame = frame;
-    }
-    else {
-        fromViewController.view.frame = frame;
-    }
-}
-
-- (void)finishInteractiveTransition {
-    id<UIViewControllerContextTransitioning> transitionContext = self.transitionContext;
-    
-    UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    
-    CGRect endFrame = [[transitionContext containerView] bounds];
-    
-    if (self.isPresenting)
-    {
-        [UIView animateWithDuration:0.5f animations:^{
-            toViewController.view.frame = endFrame;
-        } completion:^(BOOL finished) {
-            [transitionContext completeTransition:YES];
-        }];
-    }
-    else {
-        endFrame = CGRectOffset(endFrame, -CGRectGetHeight(endFrame), 0);
-        
-        [UIView animateWithDuration:0.5f animations:^{
-            fromViewController.view.frame = endFrame;
-        } completion:^(BOOL finished) {
-            [transitionContext completeTransition:YES];
-        }];
-    }
-    
-}
-
-- (void)cancelInteractiveTransition {
-    id<UIViewControllerContextTransitioning> transitionContext = self.transitionContext;
-    
-    UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    
-    CGRect endFrame = [[transitionContext containerView] bounds];
-    
-    if (self.isPresenting)
-    {
-        endFrame = CGRectOffset(endFrame, -CGRectGetHeight(endFrame), 0);
-        
-        [UIView animateWithDuration:0.5f animations:^{
-            toViewController.view.frame = endFrame;
-        } completion:^(BOOL finished) {
-            [transitionContext completeTransition:NO];
-        }];
-    }
-    else {
-        [UIView animateWithDuration:0.5f animations:^{
-            fromViewController.view.frame = endFrame;
-        } completion:^(BOOL finished) {
-            [transitionContext completeTransition:NO];
-        }];
-    }
-}
 
 @end

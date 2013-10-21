@@ -31,7 +31,26 @@
                     <view key="view" contentMode="scaleToFill" id="x5Z-tL-yWy">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sXs-JE-brC">
+                                <rect key="frame" x="-350" y="64" width="350" height="704"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="Oen-Uv-c5Q"/>
+                                    <constraint firstAttribute="height" constant="704" id="fpA-k8-yUW"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="XS9-RX-t1U" kind="embed" id="Gge-Tr-FD0"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sXs-JE-brC" firstAttribute="leading" secondItem="x5Z-tL-yWy" secondAttribute="leading" constant="-350" id="F8a-v4-4ag"/>
+                            <constraint firstItem="sXs-JE-brC" firstAttribute="top" secondItem="l9Q-7b-PbL" secondAttribute="bottom" id="u3l-4u-VTo"/>
+                            <constraint firstAttribute="trailing" secondItem="sXs-JE-brC" secondAttribute="trailing" constant="1024" id="zqf-iL-dQ1"/>
+                        </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" title="My Hometown" id="JwS-Yh-hD5">
@@ -42,30 +61,33 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="toolboxContainerView" destination="sXs-JE-brC" id="ATb-70-OiG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JYy-9X-MDi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-114" y="-29"/>
         </scene>
         <!--Toolbox View Controller-->
-        <scene sceneID="of6-LU-gln">
+        <scene sceneID="PoP-hM-SlL">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CGt-Gy-Dpy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="ToolboxViewController" modalPresentationStyle="currentContext" id="NfU-dW-48N" customClass="ToolboxViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="XS9-RX-t1U" customClass="ToolboxViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="EIP-o2-NMQ"/>
-                        <viewControllerLayoutGuide type="bottom" id="XZN-sI-2W3"/>
+                        <viewControllerLayoutGuide type="top" id="stG-dy-4KP"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xth-Is-M1t"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="1Zc-gf-C4N">
-                        <rect key="frame" x="0.0" y="0.0" width="350" height="703"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="UVc-cu-bNJ">
+                        <rect key="frame" x="0.0" y="0.0" width="350" height="704"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.86045848540000003" green="0.13036785679999999" blue="0.065555003220000005" alpha="1" colorSpace="deviceRGB"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <toolbarItems/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qVE-EI-jUC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="958" y="35"/>
+            <point key="canvasLocation" x="1128" y="-556"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

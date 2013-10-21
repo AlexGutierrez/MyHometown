@@ -7,15 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ToolboxViewControllerPanTarget.h"
 
-@interface ToolboxAnimator : UIPercentDrivenInteractiveTransition <ToolboxViewControllerPanTarget>
+@interface ToolboxAnimator : NSObject
 
-- (id)initWithParentViewController:(UIViewController *)viewController;
+- (id)initWithToolboxContainerView:(UIView *)toolboxContainerView andParentViewController:(UIViewController *)parentViewController;
 
-- (void)presentToolbox;
-- (void)hideToolbox;
+- (void)completeToolboxPresentationAnimation;
+- (void)completeToolboxHidingAnimation;
 
-@property (strong, nonatomic, readonly) UIViewController *parentViewController;
-
+- (void)userDidLeftEdgePan:(UIScreenEdgePanGestureRecognizer *)gestureRecognizer;
+    
 @end
