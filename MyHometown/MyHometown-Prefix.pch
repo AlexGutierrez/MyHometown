@@ -15,7 +15,7 @@
     #import <Foundation/Foundation.h>
     #import <CoreData/CoreData.h>
     #import "LogConstants.h"
-    #import "SegueConstants.h"
+    #import "ViewControllerIdentifiers.h"
     #import "ApplicationConstants.h"
     #import "CoreData+MagicalRecord.h"
 #endif
