@@ -7,14 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ToolboxViewControllerPanTarget.h"
 
-@interface ToolboxAnimator : NSObject
+@interface ToolboxAnimator : NSObject <ToolboxViewControllerPanTarget>
 
 - (id)initWithToolboxContainerView:(UIView *)toolboxContainerView andParentViewController:(UIViewController *)parentViewController;
 
 - (void)completeToolboxPresentationAnimation;
 - (void)completeToolboxHidingAnimation;
-
-- (void)userDidLeftEdgePan:(UIScreenEdgePanGestureRecognizer *)gestureRecognizer;
     
 @end

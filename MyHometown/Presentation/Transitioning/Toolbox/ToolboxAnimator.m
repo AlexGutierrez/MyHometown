@@ -95,9 +95,9 @@
 }
 
 #pragma mark -
-#pragma mark Gesture Recognizers
+#pragma mark Pan Target Protocol Methods
 
-- (void)userDidLeftEdgePan:(UIScreenEdgePanGestureRecognizer *)gestureRecognizer {
+- (void)userDidEdgePan:(UIScreenEdgePanGestureRecognizer *)gestureRecognizer {
     
     CGPoint location = [gestureRecognizer locationInView:self.parentViewController.view];
     CGPoint velocity = [gestureRecognizer velocityInView:self.parentViewController.view];
@@ -142,6 +142,5 @@
         }
     }
 }
-
 
 @end

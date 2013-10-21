@@ -21,7 +21,7 @@
 {
     [super viewDidLoad];
     
-    UIScreenEdgePanGestureRecognizer *gestureRecognizer = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self.panTarget action:@selector(userDidRightEdgePan:)];
+    UIScreenEdgePanGestureRecognizer *gestureRecognizer = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self.panTarget action:@selector(userDidEdgePan:)];
     gestureRecognizer.edges = UIRectEdgeRight;
     [self.view addGestureRecognizer:gestureRecognizer];
 }

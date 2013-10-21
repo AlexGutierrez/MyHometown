@@ -7,3 +7,5 @@
 //
 
 #define TOOLBOX_VIEWCONTROLLER @"ToolboxViewController"
+
+#define TOOLBOX_SEGUE @"ToolboxSegue"

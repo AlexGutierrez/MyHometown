@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "ToolboxAnimator.h"
+#import "ToolboxViewController.h"
 
 @interface MainViewController () <UIViewControllerTransitioningDelegate>
 
@@ -30,9 +31,22 @@
     
     self.toolboxAnimator = [[ToolboxAnimator alloc] initWithToolboxContainerView:self.toolboxContainerView andParentViewController:self];
     
-    UIScreenEdgePanGestureRecognizer *gestureRecognizer = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self.toolboxAnimator action:@selector(userDidLeftEdgePan:)];
+    UIScreenEdgePanGestureRecognizer *gestureRecognizer = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self.toolboxAnimator action:@selector(userDidEdgePan:)];
     gestureRecognizer.edges = UIRectEdgeLeft;
     [self.view addGestureRecognizer:gestureRecognizer];
+}
+
+#pragma mark -
+#pragma mark Segues
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSString *segueName = segue.identifier;
+    
+    if ([segueName isEqualToString:TOOLBOX_SEGUE]) {
+        ToolboxViewController *toolboxViewController = (ToolboxViewController *) [segue destinationViewController];
+        toolboxViewController.panTarget = self.toolboxAnimator;
+    }
 }
 
 #pragma mark -

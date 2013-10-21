@@ -10,6 +10,6 @@
 
 @protocol ToolboxViewControllerPanTarget <NSObject>
 
--(void)userDidPan:(UIScreenEdgePanGestureRecognizer *)gestureRecognizer;
+-(void)userDidEdgePan:(UIScreenEdgePanGestureRecognizer *)gestureRecognizer;
 
 @end
