@@ -13,6 +13,8 @@
 
 - (id)initWithToolboxContainerView:(UIView *)toolboxContainerView andParentViewController:(UIViewController *)parentViewController;
 
+- (void)toggleToolbox;
+
 - (void)completeToolboxPresentationAnimation;
 - (void)completeToolboxHidingAnimation;
     

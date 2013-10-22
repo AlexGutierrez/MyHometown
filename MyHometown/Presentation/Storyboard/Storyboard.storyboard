@@ -41,7 +41,7 @@
                                     <constraint firstAttribute="height" constant="704" id="fpA-k8-yUW"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="XS9-RX-t1U" kind="embed" id="Gge-Tr-FD0"/>
+                                    <segue destination="XS9-RX-t1U" kind="embed" identifier="ToolboxSegue" id="Gge-Tr-FD0"/>
                                 </connections>
                             </containerView>
                         </subviews>

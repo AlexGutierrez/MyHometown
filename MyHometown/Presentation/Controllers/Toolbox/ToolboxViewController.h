@@ -12,6 +12,6 @@
 
 @interface ToolboxViewController : GenericViewController
 
-@property (weak, nonatomic) id<ToolboxViewControllerPanTarget> panTarget;
+@property (strong, nonatomic) id<ToolboxViewControllerPanTarget> panTarget;
 
 @end

@@ -12,7 +12,10 @@
 
 @interface ToolboxAnimator ()
 
+// defines if the toolbox has been displayed already or not
 @property (nonatomic, getter = toolboxIsPresented) BOOL toolboxPresented;
+// defines if the user can interact with the toolbox via a pan gesture
+@property (nonatomic, getter = toolboxIsInteractive) BOOL toolboxInteractive;
 @property (strong, nonatomic) UIView *toolboxContainerView;
 @property (strong, nonatomic) UIViewController *parentViewController;
 
@@ -40,11 +43,27 @@
 #pragma mark -
 #pragma mark Public Methods
 
+#pragma mark -
+#pragma mark Custom Accessors
+
+- (void)toggleToolbox {
+    if (self.toolboxIsPresented) {
+        [self completeToolboxHidingAnimation];
+    }
+    else {
+        [self completeToolboxPresentationAnimation];
+    }
+}
+
+#pragma mark -
+#pragma mark Toolbox Toggling Animation
+
 - (void)completeToolboxPresentationAnimation {
     
     [self hideToolbox:NO];
     [self presentToolbox:YES];
     self.toolboxPresented = YES;
+    self.toolboxInteractive = NO;
 }
 
 - (void)completeToolboxHidingAnimation {
@@ -52,10 +71,8 @@
     [self presentToolbox:NO];
     [self hideToolbox:YES];
     self.toolboxPresented = NO;
+    self.toolboxInteractive = NO;
 }
-
-#pragma mark -
-#pragma mark Toolbox Toggling Animation
 
 - (void)presentToolbox:(BOOL)animated
 {
@@ -97,7 +114,7 @@
 #pragma mark -
 #pragma mark Pan Target Protocol Methods
 
-- (void)userDidEdgePan:(UIScreenEdgePanGestureRecognizer *)gestureRecognizer {
+- (void)userDidPan:(UIPanGestureRecognizer *)gestureRecognizer {
     
     CGPoint location = [gestureRecognizer locationInView:self.parentViewController.view];
     CGPoint velocity = [gestureRecognizer velocityInView:self.parentViewController.view];
@@ -106,31 +123,24 @@
         if (location.x < CGRectGetMidX(gestureRecognizer.view.bounds)) {
             if (!self.toolboxIsPresented) {
                 [self hideToolbox:NO];
+                self.toolboxInteractive = YES;
             }
         }
         else {
             if (self.toolboxIsPresented) {
                 [self presentToolbox:NO];
+                self.toolboxInteractive = YES;
             }
         }
     }
-    else if (gestureRecognizer.state == UIGestureRecognizerStateChanged) {
-        // Determine our ratio between the left edge and the right edge. This means our dismissal will go from 1...0.
-        CGFloat ratio = location.x / CGRectGetWidth(self.toolboxContainerView.bounds);
-        [self updateToolboxFrame:ratio];
-    }
-    else if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
-        if (self.toolboxIsPresented) {
-            if (velocity.x < 0) {
-                [self presentToolbox:YES];
-                self.toolboxPresented = YES;
-            }
-            else {
-                [self hideToolbox:YES];
-                self.toolboxPresented = NO;
-            }
+    else if (self.toolboxInteractive) {
+        
+        if (gestureRecognizer.state == UIGestureRecognizerStateChanged) {
+            // Determine our ratio between the left edge and the right edge. This means our dismissal will go from 1...0.
+            CGFloat ratio = location.x / CGRectGetWidth(self.toolboxContainerView.bounds);
+            [self updateToolboxFrame:ratio];
         }
-        else {
+        else if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
             if (velocity.x > 0) {
                 [self presentToolbox:YES];
                 self.toolboxPresented = YES;
@@ -139,7 +149,10 @@
                 [self hideToolbox:YES];
                 self.toolboxPresented = NO;
             }
+            
+            self.toolboxInteractive = NO;
         }
+        
     }
 }
 
