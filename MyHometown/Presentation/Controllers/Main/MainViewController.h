@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "GenericViewController.h"
+#import "ToolboxViewControllerDelegate.h"
 
-@interface MainViewController : GenericViewController
+@interface MainViewController : GenericViewController <ToolboxViewControllerDelegate>
 
 @end

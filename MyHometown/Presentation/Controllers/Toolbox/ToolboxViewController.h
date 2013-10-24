@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "GenericViewController.h"
 #import "ToolboxViewControllerPanTarget.h"
+#import "ToolboxViewControllerDelegate.h"
 
 @interface ToolboxViewController : GenericViewController
 
 @property (strong, nonatomic) id<ToolboxViewControllerPanTarget> panTarget;
+@property (weak, nonatomic) id<ToolboxViewControllerDelegate> delegate;
 
 @end

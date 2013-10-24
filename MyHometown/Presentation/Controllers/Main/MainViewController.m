@@ -10,7 +10,7 @@
 #import "ToolboxAnimator.h"
 #import "ToolboxViewController.h"
 
-@interface MainViewController () <UIViewControllerTransitioningDelegate>
+@interface MainViewController ()
 
 @property (strong, nonatomic) ToolboxAnimator *toolboxAnimator;
 @property (weak, nonatomic) IBOutlet UIView *toolboxContainerView;
@@ -53,7 +53,16 @@
     if ([segueName isEqualToString:TOOLBOX_SEGUE]) {
         ToolboxViewController *toolboxViewController = (ToolboxViewController *) [segue destinationViewController];
         toolboxViewController.panTarget = self.toolboxAnimator;
+        toolboxViewController.delegate = self;
     }
+}
+
+#pragma mark -
+#pragma mark Main View Controller Protocols
+
+- (void)buildingAdditionRequested
+{
+    [self.toolboxAnimator toggleToolbox];
 }
 
 #pragma mark -

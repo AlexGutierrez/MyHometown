@@ -17,13 +17,21 @@
 #pragma mark -
 #pragma mark View Lifecycle
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
     UIPanGestureRecognizer *gestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self.panTarget action:@selector(userDidPan:)];
     gestureRecognizer.minimumNumberOfTouches = 1;
     [self.view addGestureRecognizer:gestureRecognizer];
+}
+
+#pragma mark -
+#pragma mark View Lifecycle
+
+- (IBAction)requestNewBuilding:(UIButton *)sender {
+    if ([self.delegate respondsToSelector:@selector(buildingAdditionRequested)]) {
+        [self.delegate buildingAdditionRequested];
+    }
 }
 
 @end
