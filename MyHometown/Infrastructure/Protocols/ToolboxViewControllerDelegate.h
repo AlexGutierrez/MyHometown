@@ -11,5 +11,6 @@
 @protocol ToolboxViewControllerDelegate <NSObject>
 
 - (void)buildingAdditionRequested;
+- (void)relationshipAdditionRequested;
 
 @end

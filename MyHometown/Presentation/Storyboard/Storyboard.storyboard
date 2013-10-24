@@ -20,10 +20,10 @@
             </objects>
             <point key="canvasLocation" x="-1301" y="-29"/>
         </scene>
-        <!--Main View Controller - My Hometown-->
+        <!--Hometown View Controller - My Hometown-->
         <scene sceneID="BzC-KT-isB">
             <objects>
-                <viewController providesPresentationContextTransitionStyle="YES" id="UNS-nn-QhF" customClass="MainViewController" sceneMemberID="viewController">
+                <viewController providesPresentationContextTransitionStyle="YES" id="UNS-nn-QhF" customClass="HometownViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="l9Q-7b-PbL"/>
                         <viewControllerLayoutGuide type="bottom" id="p5a-Yr-jzZ"/>
@@ -44,8 +44,15 @@
                                     <segue destination="XS9-RX-t1U" kind="embed" identifier="ToolboxSegue" id="Gge-Tr-FD0"/>
                                 </connections>
                             </containerView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap anywhere to add your building" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zsx-hu-O00">
+                                <rect key="frame" x="304" y="727" width="417" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.9582868303571429" green="0.9582868303571429" blue="0.9582868303571429" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="sXs-JE-brC" firstAttribute="leading" secondItem="x5Z-tL-yWy" secondAttribute="leading" constant="-350" id="F8a-v4-4ag"/>
                             <constraint firstItem="sXs-JE-brC" firstAttribute="top" secondItem="l9Q-7b-PbL" secondAttribute="bottom" id="u3l-4u-VTo"/>
@@ -62,6 +69,7 @@
                     </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="instructionsLabel" destination="Zsx-hu-O00" id="HY4-DY-U02"/>
                         <outlet property="toolboxContainerView" destination="sXs-JE-brC" id="ATb-70-OiG"/>
                     </connections>
                 </viewController>
@@ -94,14 +102,32 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="requestNewBuilding:" destination="XS9-RX-t1U" eventType="touchUpInside" id="lmo-45-E9V"/>
+                                    <action selector="requestNewBuilding:" destination="XS9-RX-t1U" eventType="touchUpInside" id="sgG-xs-17Q"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nAK-yE-Dls">
+                                <rect key="frame" x="15" y="71" width="310" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="LUv-YK-amH"/>
+                                    <constraint firstAttribute="width" constant="310" id="mOx-nh-RgB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="29"/>
+                                <state key="normal" title="+ New Relationship">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="requestNewRelationship:" destination="XS9-RX-t1U" eventType="touchUpInside" id="ESo-z1-E1x"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.86045848540000003" green="0.13036785679999999" blue="0.065555003220000005" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
-                            <constraint firstItem="map-tD-naj" firstAttribute="leading" secondItem="UVc-cu-bNJ" secondAttribute="leading" constant="20" symbolic="YES" id="Tee-UR-mAd"/>
+                            <constraint firstItem="map-tD-naj" firstAttribute="leading" secondItem="UVc-cu-bNJ" secondAttribute="leading" constant="20" symbolic="YES" id="T26-Jj-yjg"/>
+                            <constraint firstItem="nAK-yE-Dls" firstAttribute="top" secondItem="map-tD-naj" secondAttribute="bottom" constant="8" symbolic="YES" id="U6R-H0-41a"/>
                             <constraint firstItem="map-tD-naj" firstAttribute="top" secondItem="stG-dy-4KP" secondAttribute="bottom" constant="20" id="nU8-Vx-y47"/>
+                            <constraint firstItem="nAK-yE-Dls" firstAttribute="leading" secondItem="UVc-cu-bNJ" secondAttribute="leading" constant="15" id="ns0-mF-Kzw"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>

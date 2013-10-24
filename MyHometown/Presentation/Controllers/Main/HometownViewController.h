@@ -10,6 +10,6 @@
 #import "GenericViewController.h"
 #import "ToolboxViewControllerDelegate.h"
 
-@interface MainViewController : GenericViewController <ToolboxViewControllerDelegate>
+@interface HometownViewController : GenericViewController <ToolboxViewControllerDelegate>
 
 @end

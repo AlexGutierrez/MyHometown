@@ -10,6 +10,9 @@
 
 @interface ToolboxViewController ()
 
+- (IBAction)requestNewBuilding:(UIButton *)sender;
+- (IBAction)requestNewRelationship:(UIButton *)sender;
+
 @end
 
 @implementation ToolboxViewController
@@ -26,7 +29,7 @@
 }
 
 #pragma mark -
-#pragma mark View Lifecycle
+#pragma mark IBActions
 
 - (IBAction)requestNewBuilding:(UIButton *)sender {
     if ([self.delegate respondsToSelector:@selector(buildingAdditionRequested)]) {
@@ -34,4 +37,9 @@
     }
 }
 
+- (IBAction)requestNewRelationship:(UIButton *)sender {
+    if ([self.delegate respondsToSelector:@selector(relationshipAdditionRequested)]) {
+        [self.delegate relationshipAdditionRequested];
+    }
+}
 @end

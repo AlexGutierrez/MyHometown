@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		7A480A1E181567540085A8EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A480A18181567540085A8EC /* AppDelegate.m */; };
 		7A480A251815679F0085A8EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A480A221815679F0085A8EC /* main.m */; };
+		7A9BFCB618197676008F6F16 /* Relationship.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BFCB518197676008F6F16 /* Relationship.m */; };
+		7A9BFCB91819A857008F6F16 /* Building.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BFCB81819A857008F6F16 /* Building.m */; };
+		7A9BFCBC1819D1E1008F6F16 /* UIView+Glow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BFCBB1819D1E1008F6F16 /* UIView+Glow.m */; };
 		7AB4CC0B1811FC4600235A8E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB4CC0A1811FC4600235A8E /* Foundation.framework */; };
 		7AB4CC0D1811FC4600235A8E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB4CC0C1811FC4600235A8E /* CoreGraphics.framework */; };
 		7AB4CC0F1811FC4600235A8E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB4CC0E1811FC4600235A8E /* UIKit.framework */; };
@@ -22,7 +25,6 @@
 		7AB4CC361811FC4600235A8E /* MyHometownTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB4CC351811FC4600235A8E /* MyHometownTests.m */; };
 		7ADF71F318156A0B000A6838 /* MyHometown.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF71ED18156A0B000A6838 /* MyHometown.xcdatamodeld */; };
 		7ADF71F418156A0B000A6838 /* GenericService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF71F118156A0B000A6838 /* GenericService.m */; };
-		7ADF720A18156A11000A6838 /* Entity+SampleCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF71F818156A11000A6838 /* Entity+SampleCategory.m */; };
 		7ADF720B18156A11000A6838 /* AlertViewsFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF720118156A11000A6838 /* AlertViewsFactory.m */; };
 		7ADF720C18156A11000A6838 /* LogHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF720418156A11000A6838 /* LogHelper.m */; };
 		7ADF720D18156A11000A6838 /* SampleMigrationPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF720718156A11000A6838 /* SampleMigrationPolicy.m */; };
@@ -66,7 +68,7 @@
 		7ADF7791181575C4000A6838 /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF7775181575C4000A6838 /* MagicalRecord.m */; };
 		7ADF77921815763E000A6838 /* MyHometownTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AB4CC311811FC4600235A8E /* MyHometownTests-Info.plist */; };
 		7ADF77A818157DE9000A6838 /* GenericViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF77A118157DE9000A6838 /* GenericViewController.m */; };
-		7ADF77A918157DE9000A6838 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF77A418157DE9000A6838 /* MainViewController.m */; };
+		7ADF77A918157DE9000A6838 /* HometownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF77A418157DE9000A6838 /* HometownViewController.m */; };
 		7ADF77AA18157DE9000A6838 /* ToolboxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF77A718157DE9000A6838 /* ToolboxViewController.m */; };
 		7ADF77AF18158125000A6838 /* ToolboxAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF77AE18158125000A6838 /* ToolboxAnimator.m */; };
 /* End PBXBuildFile section */
@@ -88,6 +90,12 @@
 		7A480A231815679F0085A8EC /* MyHometown-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "MyHometown-Info.plist"; path = "MyHometown/MyHometown-Info.plist"; sourceTree = SOURCE_ROOT; };
 		7A480A241815679F0085A8EC /* MyHometown-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MyHometown-Prefix.pch"; path = "MyHometown/MyHometown-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		7A9BFCB21819675F008F6F16 /* ToolboxViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolboxViewControllerDelegate.h; sourceTree = "<group>"; };
+		7A9BFCB418197676008F6F16 /* Relationship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Relationship.h; sourceTree = "<group>"; };
+		7A9BFCB518197676008F6F16 /* Relationship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Relationship.m; sourceTree = "<group>"; };
+		7A9BFCB71819A857008F6F16 /* Building.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Building.h; sourceTree = "<group>"; };
+		7A9BFCB81819A857008F6F16 /* Building.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Building.m; sourceTree = "<group>"; };
+		7A9BFCBA1819D1E1008F6F16 /* UIView+Glow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Glow.h"; sourceTree = "<group>"; };
+		7A9BFCBB1819D1E1008F6F16 /* UIView+Glow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Glow.m"; sourceTree = "<group>"; };
 		7AB4CC071811FC4600235A8E /* MyHometown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHometown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AB4CC0A1811FC4600235A8E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7AB4CC0C1811FC4600235A8E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -102,8 +110,6 @@
 		7ADF71EE18156A0B000A6838 /* MyHometown.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyHometown.xcdatamodel; sourceTree = "<group>"; };
 		7ADF71F018156A0B000A6838 /* GenericService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericService.h; sourceTree = "<group>"; };
 		7ADF71F118156A0B000A6838 /* GenericService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericService.m; sourceTree = "<group>"; };
-		7ADF71F718156A11000A6838 /* Entity+SampleCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Entity+SampleCategory.h"; sourceTree = "<group>"; };
-		7ADF71F818156A11000A6838 /* Entity+SampleCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Entity+SampleCategory.m"; sourceTree = "<group>"; };
 		7ADF71FA18156A11000A6838 /* ApplicationConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationConstants.h; sourceTree = "<group>"; };
 		7ADF71FB18156A11000A6838 /* LogConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogConstants.h; sourceTree = "<group>"; };
 		7ADF71FE18156A11000A6838 /* SampleEnumsFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleEnumsFile.h; sourceTree = "<group>"; };
@@ -191,8 +197,8 @@
 		7ADF7777181575C4000A6838 /* CoreData+MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CoreData+MagicalRecord.h"; path = "../../ProofOfConcept/External Sources/Magical Record/MagicalRecord/CoreData+MagicalRecord.h"; sourceTree = "<group>"; };
 		7ADF77A018157DE9000A6838 /* GenericViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericViewController.h; sourceTree = "<group>"; };
 		7ADF77A118157DE9000A6838 /* GenericViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericViewController.m; sourceTree = "<group>"; };
-		7ADF77A318157DE9000A6838 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		7ADF77A418157DE9000A6838 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		7ADF77A318157DE9000A6838 /* HometownViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HometownViewController.h; sourceTree = "<group>"; };
+		7ADF77A418157DE9000A6838 /* HometownViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HometownViewController.m; sourceTree = "<group>"; };
 		7ADF77A618157DE9000A6838 /* ToolboxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolboxViewController.h; sourceTree = "<group>"; };
 		7ADF77A718157DE9000A6838 /* ToolboxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolboxViewController.m; sourceTree = "<group>"; };
 		7ADF77AD18158125000A6838 /* ToolboxAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolboxAnimator.h; sourceTree = "<group>"; };
@@ -237,6 +243,17 @@
 				7A480A241815679F0085A8EC /* MyHometown-Prefix.pch */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7A9BFCB318197633008F6F16 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				7A9BFCB418197676008F6F16 /* Relationship.h */,
+				7A9BFCB518197676008F6F16 /* Relationship.m */,
+				7A9BFCB71819A857008F6F16 /* Building.h */,
+				7A9BFCB81819A857008F6F16 /* Building.m */,
+			);
+			path = "Custom Views";
 			sourceTree = "<group>";
 		};
 		7AB4CBFE1811FC4600235A8E = {
@@ -355,8 +372,8 @@
 		7ADF71F618156A11000A6838 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				7ADF71F718156A11000A6838 /* Entity+SampleCategory.h */,
-				7ADF71F818156A11000A6838 /* Entity+SampleCategory.m */,
+				7A9BFCBA1819D1E1008F6F16 /* UIView+Glow.h */,
+				7A9BFCBB1819D1E1008F6F16 /* UIView+Glow.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -418,6 +435,7 @@
 		7ADF720E18156A18000A6838 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				7A9BFCB318197633008F6F16 /* Custom Views */,
 				7ADF720F18156A18000A6838 /* Controllers */,
 				7ADF721118156A18000A6838 /* Storyboard */,
 				7ADF77AB18157F9C000A6838 /* Transitioning */,
@@ -625,8 +643,8 @@
 		7ADF77A218157DE9000A6838 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				7ADF77A318157DE9000A6838 /* MainViewController.h */,
-				7ADF77A418157DE9000A6838 /* MainViewController.m */,
+				7ADF77A318157DE9000A6838 /* HometownViewController.h */,
+				7ADF77A418157DE9000A6838 /* HometownViewController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -780,13 +798,15 @@
 				7ADF7785181575C4000A6838 /* NSManagedObjectContext+MagicalRecord.m in Sources */,
 				7ADF7782181575C4000A6838 /* NSManagedObject+MagicalRecord.m in Sources */,
 				7A480A251815679F0085A8EC /* main.m in Sources */,
-				7ADF77A918157DE9000A6838 /* MainViewController.m in Sources */,
+				7A9BFCB91819A857008F6F16 /* Building.m in Sources */,
+				7ADF77A918157DE9000A6838 /* HometownViewController.m in Sources */,
 				7ADF7790181575C4000A6838 /* MagicalRecord+ShorthandSupport.m in Sources */,
 				7ADF778F181575C4000A6838 /* MagicalRecord+Setup.m in Sources */,
 				7ADF7781181575C4000A6838 /* NSManagedObject+MagicalFinders.m in Sources */,
 				7ADF777E181575C4000A6838 /* NSString+MagicalDataImport.m in Sources */,
 				7ADF7788181575C4000A6838 /* NSManagedObjectModel+MagicalRecord.m in Sources */,
 				7ADF7783181575C4000A6838 /* NSManagedObject+MagicalRequests.m in Sources */,
+				7A9BFCB618197676008F6F16 /* Relationship.m in Sources */,
 				7ADF773A181575AC000A6838 /* DispatchQueueLogFormatter.m in Sources */,
 				7ADF7784181575C4000A6838 /* NSManagedObjectContext+MagicalObserving.m in Sources */,
 				7ADF7791181575C4000A6838 /* MagicalRecord.m in Sources */,
@@ -795,11 +815,11 @@
 				7ADF7737181575AC000A6838 /* DDLog.m in Sources */,
 				7ADF778B181575C4000A6838 /* MagicalRecord+Actions.m in Sources */,
 				7ADF777B181575C4000A6838 /* NSNumber+MagicalDataImport.m in Sources */,
+				7A9BFCBC1819D1E1008F6F16 /* UIView+Glow.m in Sources */,
 				7ADF720D18156A11000A6838 /* SampleMigrationPolicy.m in Sources */,
 				7ADF7786181575C4000A6838 /* NSManagedObjectContext+MagicalSaves.m in Sources */,
 				7ADF7735181575AC000A6838 /* DDASLLogger.m in Sources */,
 				7ADF7780181575C4000A6838 /* NSManagedObject+MagicalDataImport.m in Sources */,
-				7ADF720A18156A11000A6838 /* Entity+SampleCategory.m in Sources */,
 				7ADF7739181575AC000A6838 /* ContextFilterLogFormatter.m in Sources */,
 				7ADF778C181575C4000A6838 /* MagicalRecord+ErrorHandling.m in Sources */,
 				7ADF778D181575C4000A6838 /* MagicalRecord+iCloud.m in Sources */,
