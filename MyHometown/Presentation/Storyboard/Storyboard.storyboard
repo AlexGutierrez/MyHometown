@@ -32,6 +32,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mkf-A2-lyb">
+                                <rect key="frame" x="-6" y="64" width="1030" height="704"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </scrollView>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sXs-JE-brC">
                                 <rect key="frame" x="-350" y="64" width="350" height="704"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -48,13 +53,17 @@
                                 <rect key="frame" x="304" y="727" width="417" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.9582868303571429" green="0.9582868303571429" blue="0.9582868303571429" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="Mkf-A2-lyb" firstAttribute="top" secondItem="sXs-JE-brC" secondAttribute="top" id="3DT-Xj-Wh0"/>
                             <constraint firstItem="sXs-JE-brC" firstAttribute="leading" secondItem="x5Z-tL-yWy" secondAttribute="leading" constant="-350" id="F8a-v4-4ag"/>
+                            <constraint firstItem="Mkf-A2-lyb" firstAttribute="bottom" secondItem="sXs-JE-brC" secondAttribute="bottom" id="c3A-UH-FuL"/>
+                            <constraint firstAttribute="trailing" secondItem="Mkf-A2-lyb" secondAttribute="trailing" id="kKk-uu-gOo"/>
+                            <constraint firstItem="Mkf-A2-lyb" firstAttribute="leading" secondItem="x5Z-tL-yWy" secondAttribute="leading" constant="-6" id="nNS-f5-FIu"/>
                             <constraint firstItem="sXs-JE-brC" firstAttribute="top" secondItem="l9Q-7b-PbL" secondAttribute="bottom" id="u3l-4u-VTo"/>
                             <constraint firstAttribute="trailing" secondItem="sXs-JE-brC" secondAttribute="trailing" constant="1024" id="zqf-iL-dQ1"/>
                         </constraints>
@@ -70,6 +79,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="instructionsLabel" destination="Zsx-hu-O00" id="HY4-DY-U02"/>
+                        <outlet property="scrollView" destination="Mkf-A2-lyb" id="ihS-bP-GKZ"/>
                         <outlet property="toolboxContainerView" destination="sXs-JE-brC" id="ATb-70-OiG"/>
                         <segue destination="cKC-B7-89h" kind="push" identifier="DetailSegue" id="0xy-OK-6FY"/>
                     </connections>

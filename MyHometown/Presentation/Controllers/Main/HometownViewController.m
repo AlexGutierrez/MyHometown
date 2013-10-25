@@ -33,6 +33,7 @@ typedef enum {
 
 @property (weak, nonatomic) IBOutlet UIView *toolboxContainerView;
 @property (weak, nonatomic) IBOutlet UILabel *instructionsLabel;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (strong, nonatomic) Building *tappedBuilding1;
 @property (strong, nonatomic) Building *tappedBuilding2;
@@ -69,7 +70,7 @@ typedef enum {
     
     UIScreenEdgePanGestureRecognizer *screenEdgeGestureRecognizer = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self.toolboxAnimator action:@selector(userDidPan:)];
     screenEdgeGestureRecognizer.edges = UIRectEdgeLeft;
-    [self.view addGestureRecognizer:screenEdgeGestureRecognizer];
+    [self.scrollView addGestureRecognizer:screenEdgeGestureRecognizer];
     
     self.buildingAdditionGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addNewBuilding:)];
     self.buildingAdditionGestureRecognizer.numberOfTapsRequired = 1;
@@ -91,7 +92,7 @@ typedef enum {
     if (_selectedAction != selectedAction) {
         _selectedAction = selectedAction;
         
-        [self.view removeGestureRecognizer:self.buildingAdditionGestureRecognizer];
+        [self.scrollView removeGestureRecognizer:self.buildingAdditionGestureRecognizer];
         
         self.tappedBuilding1 = nil;
         self.tappedBuilding2 = nil;
@@ -99,7 +100,7 @@ typedef enum {
         
         switch (_selectedAction) {
             case SelectedActionNewBuilding:
-                [self.view addGestureRecognizer:self.buildingAdditionGestureRecognizer];
+                [self.scrollView addGestureRecognizer:self.buildingAdditionGestureRecognizer];
                 self.instructionsLabel.text = @"Tap anywhere to add a new building";
                 break;
             case SelectedActionNewRelationship:
@@ -228,7 +229,7 @@ typedef enum {
         
         [relationship addTarget:self action:@selector(relationshipTapped:) forControlEvents:UIControlEventTouchUpInside];
         
-        [self.view addSubview:relationship];
+        [self.scrollView addSubview:relationship];
         [self.relationships addObject:relationship];
         [self.tappedBuilding1.relationships addObject:relationship];
         [self.tappedBuilding2.relationships addObject:relationship];
@@ -272,13 +273,13 @@ typedef enum {
 
 - (void)addNewBuilding:(UITapGestureRecognizer *)gestureRecognizer {
     
-    CGPoint location = [gestureRecognizer locationInView:self.view];
+    CGPoint location = [gestureRecognizer locationInView:self.scrollView];
     Building *newBuilding = [[Building alloc] initWithFrame:BUILDING_FRAME];
     newBuilding.center = location;
     
     [newBuilding addTarget:self action:@selector(buildingTapped:) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.view addSubview:newBuilding];
+    [self.scrollView addSubview:newBuilding];
     [self.buildings addObject:newBuilding];
     
     self.selectedAction = SelectedActionNone;
@@ -358,14 +359,14 @@ typedef enum {
 - (void)rearrangeViews {
     
     for (Relationship *relationship in self.relationships) {
-        [self.view sendSubviewToBack:relationship];
+        [self.scrollView sendSubviewToBack:relationship];
     }
     
     for (Building *building in self.buildings) {
-        [self.view bringSubviewToFront:building];
+        [self.scrollView bringSubviewToFront:building];
     }
     
-    [self.view bringSubviewToFront:self.toolboxContainerView];
+    [self.scrollView bringSubviewToFront:self.toolboxContainerView];
 }
 
 @end
