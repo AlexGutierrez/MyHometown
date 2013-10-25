@@ -12,6 +12,7 @@
 		7A9BFCB618197676008F6F16 /* Relationship.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BFCB518197676008F6F16 /* Relationship.m */; };
 		7A9BFCB91819A857008F6F16 /* Building.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BFCB81819A857008F6F16 /* Building.m */; };
 		7A9BFCBC1819D1E1008F6F16 /* UIView+Glow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BFCBB1819D1E1008F6F16 /* UIView+Glow.m */; };
+		7A9BFCBF1819D7F5008F6F16 /* GraphItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BFCBE1819D7F5008F6F16 /* GraphItem.m */; };
 		7AB4CC0B1811FC4600235A8E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB4CC0A1811FC4600235A8E /* Foundation.framework */; };
 		7AB4CC0D1811FC4600235A8E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB4CC0C1811FC4600235A8E /* CoreGraphics.framework */; };
 		7AB4CC0F1811FC4600235A8E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB4CC0E1811FC4600235A8E /* UIKit.framework */; };
@@ -96,6 +97,8 @@
 		7A9BFCB81819A857008F6F16 /* Building.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Building.m; sourceTree = "<group>"; };
 		7A9BFCBA1819D1E1008F6F16 /* UIView+Glow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Glow.h"; sourceTree = "<group>"; };
 		7A9BFCBB1819D1E1008F6F16 /* UIView+Glow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Glow.m"; sourceTree = "<group>"; };
+		7A9BFCBD1819D7F5008F6F16 /* GraphItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphItem.h; sourceTree = "<group>"; };
+		7A9BFCBE1819D7F5008F6F16 /* GraphItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphItem.m; sourceTree = "<group>"; };
 		7AB4CC071811FC4600235A8E /* MyHometown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHometown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AB4CC0A1811FC4600235A8E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7AB4CC0C1811FC4600235A8E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -252,6 +255,8 @@
 				7A9BFCB518197676008F6F16 /* Relationship.m */,
 				7A9BFCB71819A857008F6F16 /* Building.h */,
 				7A9BFCB81819A857008F6F16 /* Building.m */,
+				7A9BFCBD1819D7F5008F6F16 /* GraphItem.h */,
+				7A9BFCBE1819D7F5008F6F16 /* GraphItem.m */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -818,6 +823,7 @@
 				7A9BFCBC1819D1E1008F6F16 /* UIView+Glow.m in Sources */,
 				7ADF720D18156A11000A6838 /* SampleMigrationPolicy.m in Sources */,
 				7ADF7786181575C4000A6838 /* NSManagedObjectContext+MagicalSaves.m in Sources */,
+				7A9BFCBF1819D7F5008F6F16 /* GraphItem.m in Sources */,
 				7ADF7735181575AC000A6838 /* DDASLLogger.m in Sources */,
 				7ADF7780181575C4000A6838 /* NSManagedObject+MagicalDataImport.m in Sources */,
 				7ADF7739181575AC000A6838 /* ContextFilterLogFormatter.m in Sources */,

@@ -7,7 +7,6 @@
 //
 
 #import "Building.h"
-#import "UIView+Glow.h"
 
 @interface Building ()
 
@@ -65,17 +64,12 @@
 #pragma mark -
 #pragma mark Custom Accessors
 
-- (void)setInteractionState:(BuildingInteractionState)interactionState {
-    if (_interactionState != interactionState) {
-        _interactionState = interactionState;
-        
-        if (interactionState == BuildingInteractionStateSelected) {
-            [self startGlowingWithColor:[UIColor whiteColor] intensity:0.6f];
-        }
-        else {
-            [self stopGlowing];
-        }
+- (NSMutableArray *)relationships {
+    if (!_relationships) {
+        _relationships = [NSMutableArray array];
     }
+    
+    return _relationships;
 }
 
 #pragma mark -

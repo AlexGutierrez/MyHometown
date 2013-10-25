@@ -7,14 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GraphItem.h"
 
-typedef enum {
-    BuildingInteractionStateNone,
-    BuildingInteractionStateSelected
-}BuildingInteractionState;
+@interface Building : GraphItem
 
-@interface Building : UIView
-
-@property (nonatomic) BuildingInteractionState interactionState;
+@property (strong, nonatomic) NSMutableArray *relationships;
 
 @end

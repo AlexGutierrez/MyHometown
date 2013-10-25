@@ -12,5 +12,7 @@
 
 - (void)buildingAdditionRequested;
 - (void)relationshipAdditionRequested;
+- (void)buildingRemovalRequested;
+- (void)relationshipRemovalRequested;
 
 @end

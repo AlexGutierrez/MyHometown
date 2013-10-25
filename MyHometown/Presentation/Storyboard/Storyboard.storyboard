@@ -121,11 +121,47 @@
                                     <action selector="requestNewRelationship:" destination="XS9-RX-t1U" eventType="touchUpInside" id="ESo-z1-E1x"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lfs-sO-iAt">
+                                <rect key="frame" x="20" y="122" width="310" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="Jly-wV-70a"/>
+                                    <constraint firstAttribute="width" constant="310" id="KpS-hK-7Z3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="29"/>
+                                <state key="normal" title="- Remove Building">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="requestBuildingRemoval:" destination="XS9-RX-t1U" eventType="touchUpInside" id="q7q-zE-cFj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d64-8V-yBQ">
+                                <rect key="frame" x="15" y="173" width="310" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="310" id="Zbu-uH-bIu"/>
+                                    <constraint firstAttribute="height" constant="43" id="lY3-Wv-o1B"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="29"/>
+                                <state key="normal" title="- Remove Relationship">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="requestRelationshipRemoval:" destination="XS9-RX-t1U" eventType="touchUpInside" id="k34-Dt-nEQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.86045848540000003" green="0.13036785679999999" blue="0.065555003220000005" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
+                            <constraint firstItem="d64-8V-yBQ" firstAttribute="top" secondItem="lfs-sO-iAt" secondAttribute="bottom" constant="8" symbolic="YES" id="1Fe-nE-Yje"/>
+                            <constraint firstItem="d64-8V-yBQ" firstAttribute="leading" secondItem="nAK-yE-Dls" secondAttribute="leading" id="2gt-dn-vaO"/>
+                            <constraint firstItem="lfs-sO-iAt" firstAttribute="leading" secondItem="map-tD-naj" secondAttribute="leading" id="Oxe-Ic-Swr"/>
                             <constraint firstItem="map-tD-naj" firstAttribute="leading" secondItem="UVc-cu-bNJ" secondAttribute="leading" constant="20" symbolic="YES" id="T26-Jj-yjg"/>
                             <constraint firstItem="nAK-yE-Dls" firstAttribute="top" secondItem="map-tD-naj" secondAttribute="bottom" constant="8" symbolic="YES" id="U6R-H0-41a"/>
+                            <constraint firstItem="lfs-sO-iAt" firstAttribute="top" secondItem="nAK-yE-Dls" secondAttribute="bottom" constant="8" symbolic="YES" id="fnM-rP-ebz"/>
                             <constraint firstItem="map-tD-naj" firstAttribute="top" secondItem="stG-dy-4KP" secondAttribute="bottom" constant="20" id="nU8-Vx-y47"/>
                             <constraint firstItem="nAK-yE-Dls" firstAttribute="leading" secondItem="UVc-cu-bNJ" secondAttribute="leading" constant="15" id="ns0-mF-Kzw"/>
                         </constraints>

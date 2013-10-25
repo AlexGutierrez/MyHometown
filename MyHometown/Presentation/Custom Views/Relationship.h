@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GraphItem.h"
 
-@interface Relationship : UIView
+@interface Relationship : GraphItem
 
 - (instancetype)initWithEnd1:(UIView *)end1 andEnd2:(UIView *)end2;
 

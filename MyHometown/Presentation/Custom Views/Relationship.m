@@ -39,6 +39,13 @@
     return self;
 }
 
+- (void)removeFromSuperview {
+    [super removeFromSuperview];
+    
+    [self.end1 removeObserver:self forKeyPath:@"center"];
+    [self.end2 removeObserver:self forKeyPath:@"center"];
+}
+
 #pragma mark -
 #pragma mark Drawing Methods
 

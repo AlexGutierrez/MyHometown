@@ -12,7 +12,8 @@
 
 - (IBAction)requestNewBuilding:(UIButton *)sender;
 - (IBAction)requestNewRelationship:(UIButton *)sender;
-
+- (IBAction)requestBuildingRemoval:(UIButton *)sender;
+- (IBAction)requestRelationshipRemoval:(UIButton *)sender;
 @end
 
 @implementation ToolboxViewController
@@ -42,4 +43,16 @@
         [self.delegate relationshipAdditionRequested];
     }
 }
+- (IBAction)requestBuildingRemoval:(UIButton *)sender {
+    if ([self.delegate respondsToSelector:@selector(buildingRemovalRequested)]) {
+        [self.delegate buildingRemovalRequested];
+    }
+}
+
+- (IBAction)requestRelationshipRemoval:(UIButton *)sender {
+    if ([self.delegate respondsToSelector:@selector(relationshipRemovalRequested)]) {
+        [self.delegate relationshipRemovalRequested];
+    }
+}
+
 @end
