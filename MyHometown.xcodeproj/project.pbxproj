@@ -14,6 +14,18 @@
 		7A7D09CA181AD6F8009D851C /* CustomTransitionNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7D09C9181AD6F8009D851C /* CustomTransitionNavigationController.m */; };
 		7A7D09CE181AD741009D851C /* CustomTransitionNavigationAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7D09CD181AD741009D851C /* CustomTransitionNavigationAnimator.m */; };
 		7A7D09D1181AD7C6009D851C /* FadeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7D09D0181AD7C6009D851C /* FadeTransition.m */; };
+		7A7D09D6181B04DC009D851C /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A7D09D5181B04DC009D851C /* OpenGLES.framework */; };
+		7A7D09D8181B04E3009D851C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A7D09D7181B04E3009D851C /* Security.framework */; };
+		7A7D09DA181B04FA009D851C /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A7D09D9181B04FA009D851C /* CoreText.framework */; };
+		7A7D09DE181B05CB009D851C /* ShinobiCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A7D09DD181B05CB009D851C /* ShinobiCharts.framework */; };
+		7A7D09E1181B064E009D851C /* LinearChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7D09E0181B064E009D851C /* LinearChartViewController.m */; };
+		7A7D09E3181B07E5009D851C /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A7D09E2181B07E5009D851C /* libstdc++.6.0.9.dylib */; };
+		7A7D09E6181B1B83009D851C /* BarChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7D09E5181B1B83009D851C /* BarChartViewController.m */; };
+		7A7D09E9181B24FD009D851C /* PieChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7D09E8181B24FD009D851C /* PieChartViewController.m */; };
+		7A7D09EC181B2D34009D851C /* TimeChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7D09EB181B2D34009D851C /* TimeChartViewController.m */; };
+		7A7D09EF181B2E84009D851C /* AppleStockPrices.json in Resources */ = {isa = PBXBuildFile; fileRef = 7A7D09EE181B2E84009D851C /* AppleStockPrices.json */; };
+		7A7D09F2181B2EEA009D851C /* BubbleChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7D09F1181B2EEA009D851C /* BubbleChartViewController.m */; };
+		7A7D09F4181B2FE2009D851C /* punchcard.json in Resources */ = {isa = PBXBuildFile; fileRef = 7A7D09F3181B2FE2009D851C /* punchcard.json */; };
 		7A9BFCB618197676008F6F16 /* Relationship.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BFCB518197676008F6F16 /* Relationship.m */; };
 		7A9BFCB91819A857008F6F16 /* Building.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BFCB81819A857008F6F16 /* Building.m */; };
 		7A9BFCBC1819D1E1008F6F16 /* UIView+Glow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BFCBB1819D1E1008F6F16 /* UIView+Glow.m */; };
@@ -104,6 +116,24 @@
 		7A7D09CD181AD741009D851C /* CustomTransitionNavigationAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTransitionNavigationAnimator.m; sourceTree = "<group>"; };
 		7A7D09CF181AD7C6009D851C /* FadeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FadeTransition.h; sourceTree = "<group>"; };
 		7A7D09D0181AD7C6009D851C /* FadeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FadeTransition.m; sourceTree = "<group>"; };
+		7A7D09D5181B04DC009D851C /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		7A7D09D7181B04E3009D851C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		7A7D09D9181B04FA009D851C /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		7A7D09DB181B050F009D851C /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		7A7D09DD181B05CB009D851C /* ShinobiCharts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShinobiCharts.framework; path = "External Sources/ShinobiCharts.framework"; sourceTree = "<group>"; };
+		7A7D09DF181B064E009D851C /* LinearChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinearChartViewController.h; sourceTree = "<group>"; };
+		7A7D09E0181B064E009D851C /* LinearChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinearChartViewController.m; sourceTree = "<group>"; };
+		7A7D09E2181B07E5009D851C /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
+		7A7D09E4181B1B83009D851C /* BarChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarChartViewController.h; sourceTree = "<group>"; };
+		7A7D09E5181B1B83009D851C /* BarChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarChartViewController.m; sourceTree = "<group>"; };
+		7A7D09E7181B24FD009D851C /* PieChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieChartViewController.h; sourceTree = "<group>"; };
+		7A7D09E8181B24FD009D851C /* PieChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieChartViewController.m; sourceTree = "<group>"; };
+		7A7D09EA181B2D34009D851C /* TimeChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeChartViewController.h; sourceTree = "<group>"; };
+		7A7D09EB181B2D34009D851C /* TimeChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeChartViewController.m; sourceTree = "<group>"; };
+		7A7D09EE181B2E84009D851C /* AppleStockPrices.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AppleStockPrices.json; sourceTree = "<group>"; };
+		7A7D09F0181B2EEA009D851C /* BubbleChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BubbleChartViewController.h; sourceTree = "<group>"; };
+		7A7D09F1181B2EEA009D851C /* BubbleChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BubbleChartViewController.m; sourceTree = "<group>"; };
+		7A7D09F3181B2FE2009D851C /* punchcard.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = punchcard.json; sourceTree = "<group>"; };
 		7A9BFCB21819675F008F6F16 /* ToolboxViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolboxViewControllerDelegate.h; sourceTree = "<group>"; };
 		7A9BFCB418197676008F6F16 /* Relationship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Relationship.h; sourceTree = "<group>"; };
 		7A9BFCB518197676008F6F16 /* Relationship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Relationship.m; sourceTree = "<group>"; };
@@ -229,6 +259,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A7D09E3181B07E5009D851C /* libstdc++.6.0.9.dylib in Frameworks */,
+				7A7D09DE181B05CB009D851C /* ShinobiCharts.framework in Frameworks */,
+				7A7D09DA181B04FA009D851C /* CoreText.framework in Frameworks */,
+				7A7D09D8181B04E3009D851C /* Security.framework in Frameworks */,
+				7A7D09D6181B04DC009D851C /* OpenGLES.framework in Frameworks */,
 				7A7D09C3181AB315009D851C /* QuartzCore.framework in Frameworks */,
 				7AB4CC0D1811FC4600235A8E /* CoreGraphics.framework in Frameworks */,
 				7AB4CC111811FC4600235A8E /* CoreData.framework in Frameworks */,
@@ -268,6 +303,16 @@
 			children = (
 				7A7D09C5181AD5B5009D851C /* DetailViewController.h */,
 				7A7D09C6181AD5B5009D851C /* DetailViewController.m */,
+				7A7D09DF181B064E009D851C /* LinearChartViewController.h */,
+				7A7D09E0181B064E009D851C /* LinearChartViewController.m */,
+				7A7D09E4181B1B83009D851C /* BarChartViewController.h */,
+				7A7D09E5181B1B83009D851C /* BarChartViewController.m */,
+				7A7D09E7181B24FD009D851C /* PieChartViewController.h */,
+				7A7D09E8181B24FD009D851C /* PieChartViewController.m */,
+				7A7D09EA181B2D34009D851C /* TimeChartViewController.h */,
+				7A7D09EB181B2D34009D851C /* TimeChartViewController.m */,
+				7A7D09F0181B2EEA009D851C /* BubbleChartViewController.h */,
+				7A7D09F1181B2EEA009D851C /* BubbleChartViewController.m */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -281,6 +326,15 @@
 				7A7D09D0181AD7C6009D851C /* FadeTransition.m */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		7A7D09ED181B2E84009D851C /* Other Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7A7D09EE181B2E84009D851C /* AppleStockPrices.json */,
+				7A7D09F3181B2FE2009D851C /* punchcard.json */,
+			);
+			path = "Other Resources";
 			sourceTree = "<group>";
 		};
 		7A9BFCB318197633008F6F16 /* Custom Views */ = {
@@ -319,6 +373,12 @@
 		7AB4CC091811FC4600235A8E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7A7D09E2181B07E5009D851C /* libstdc++.6.0.9.dylib */,
+				7A7D09DD181B05CB009D851C /* ShinobiCharts.framework */,
+				7A7D09DB181B050F009D851C /* libstdc++.dylib */,
+				7A7D09D9181B04FA009D851C /* CoreText.framework */,
+				7A7D09D7181B04E3009D851C /* Security.framework */,
+				7A7D09D5181B04DC009D851C /* OpenGLES.framework */,
 				7A7D09C2181AB315009D851C /* QuartzCore.framework */,
 				7AB4CC0A1811FC4600235A8E /* Foundation.framework */,
 				7AB4CC0C1811FC4600235A8E /* CoreGraphics.framework */,
@@ -405,6 +465,7 @@
 				7ADF71FF18156A11000A6838 /* Factories */,
 				7ADF720218156A11000A6838 /* Helpers */,
 				7ADF720518156A11000A6838 /* Migration Policies */,
+				7A7D09ED181B2E84009D851C /* Other Resources */,
 				7ADF720818156A11000A6838 /* Protocols */,
 			);
 			path = Infrastructure;
@@ -798,7 +859,9 @@
 			files = (
 				7ADF77921815763E000A6838 /* MyHometownTests-Info.plist in Resources */,
 				7AB4CC221811FC4600235A8E /* Images.xcassets in Resources */,
+				7A7D09F4181B2FE2009D851C /* punchcard.json in Resources */,
 				7ADF773B181575AC000A6838 /* README.txt in Resources */,
+				7A7D09EF181B2E84009D851C /* AppleStockPrices.json in Resources */,
 				7ADF770418156BE8000A6838 /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -825,11 +888,15 @@
 				7ADF770218156BC0000A6838 /* Entity.m in Sources */,
 				7ADF777F181575C4000A6838 /* NSManagedObject+MagicalAggregation.m in Sources */,
 				7ADF7789181575C4000A6838 /* NSPersistentStore+MagicalRecord.m in Sources */,
+				7A7D09F2181B2EEA009D851C /* BubbleChartViewController.m in Sources */,
 				7A480A1E181567540085A8EC /* AppDelegate.m in Sources */,
 				7ADF770A18156C20000A6838 /* SampleDTO.m in Sources */,
 				7ADF7738181575AC000A6838 /* DDTTYLogger.m in Sources */,
+				7A7D09E6181B1B83009D851C /* BarChartViewController.m in Sources */,
+				7A7D09E1181B064E009D851C /* LinearChartViewController.m in Sources */,
 				7ADF777C181575C4000A6838 /* NSObject+MagicalDataImport.m in Sources */,
 				7ADF778A181575C4000A6838 /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
+				7A7D09E9181B24FD009D851C /* PieChartViewController.m in Sources */,
 				7ADF7778181575C4000A6838 /* MagicalImportFunctions.m in Sources */,
 				7ADF77A818157DE9000A6838 /* GenericViewController.m in Sources */,
 				7ADF7779181575C4000A6838 /* NSAttributeDescription+MagicalDataImport.m in Sources */,
@@ -862,6 +929,7 @@
 				7ADF7734181575AC000A6838 /* DDAbstractDatabaseLogger.m in Sources */,
 				7ADF720B18156A11000A6838 /* AlertViewsFactory.m in Sources */,
 				7ADF7737181575AC000A6838 /* DDLog.m in Sources */,
+				7A7D09EC181B2D34009D851C /* TimeChartViewController.m in Sources */,
 				7ADF778B181575C4000A6838 /* MagicalRecord+Actions.m in Sources */,
 				7ADF777B181575C4000A6838 /* NSNumber+MagicalDataImport.m in Sources */,
 				7A9BFCBC1819D1E1008F6F16 /* UIView+Glow.m in Sources */,
@@ -985,6 +1053,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/agutierrez/Dropbox/Dev/iOS/Verizon/MyHometown/External\\ Sources",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyHometown/MyHometown-Prefix.pch";
 				INFOPLIST_FILE = "MyHometown/MyHometown-Info.plist";
@@ -999,6 +1071,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/agutierrez/Dropbox/Dev/iOS/Verizon/MyHometown/External\\ Sources",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyHometown/MyHometown-Prefix.pch";
 				INFOPLIST_FILE = "MyHometown/MyHometown-Info.plist";

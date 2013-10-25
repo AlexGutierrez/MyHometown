@@ -185,7 +185,49 @@
                     <view key="view" contentMode="scaleToFill" id="Gke-OO-zb0">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d0z-aO-Cbi">
+                                <rect key="frame" x="20" y="90" width="482" height="324"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="jVs-By-HAq" kind="embed" id="vca-os-brx"/>
+                                </connections>
+                            </containerView>
+                            <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tgw-nk-4UJ">
+                                <rect key="frame" x="20" y="432" width="316" height="316"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="q6v-NO-JtW" kind="embed" id="sf7-WY-GWg"/>
+                                </connections>
+                            </containerView>
+                            <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JW9-YN-Nvh">
+                                <rect key="frame" x="354" y="432" width="316" height="316"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="jtw-01-dLX" kind="embed" id="01Y-QM-Wgs"/>
+                                </connections>
+                            </containerView>
+                            <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ajQ-mo-dUq">
+                                <rect key="frame" x="688" y="431" width="316" height="316"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="gP1-8K-SB7" kind="embed" id="ZCD-21-gAK"/>
+                                </connections>
+                            </containerView>
+                            <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XaZ-RM-kIF">
+                                <rect key="frame" x="522" y="90" width="482" height="324"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="K52-sp-wZs" kind="embed" id="FlS-Jg-RDu"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.95828683039999996" green="0.95828683039999996" blue="0.95828683039999996" alpha="1" colorSpace="calibratedRGB"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" title="Building Details" id="LP0-Yd-u43"/>
@@ -193,6 +235,102 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OC5-Rg-8q4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1126" y="-29"/>
+        </scene>
+        <!--Bubble Chart View Controller-->
+        <scene sceneID="PZI-ho-0RC">
+            <objects>
+                <viewController id="gP1-8K-SB7" customClass="BubbleChartViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ddP-WK-i2e"/>
+                        <viewControllerLayoutGuide type="bottom" id="EoX-rm-GfS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Oj1-bE-TbN">
+                        <rect key="frame" x="0.0" y="0.0" width="316" height="316"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="0.25098040699958801" alpha="1" colorSpace="calibratedRGB"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hx0-1X-Jaj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2458" y="667"/>
+        </scene>
+        <!--Linear Chart View Controller-->
+        <scene sceneID="RIz-Z9-Beh">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="jVs-By-HAq" customClass="LinearChartViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="udS-ap-cMV"/>
+                        <viewControllerLayoutGuide type="bottom" id="mhX-xm-vwB"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="KGF-kI-Bhp">
+                        <rect key="frame" x="0.0" y="0.0" width="482" height="324"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <toolbarItems/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gbL-iO-iZe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2379" y="-651"/>
+        </scene>
+        <!--Time Chart View Controller-->
+        <scene sceneID="Fh4-1M-rsg">
+            <objects>
+                <viewController id="K52-sp-wZs" customClass="TimeChartViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oAI-Mo-aJY"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gfk-SR-HOX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vV5-Es-xI7">
+                        <rect key="frame" x="0.0" y="0.0" width="482" height="324"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.50196081399917603" green="0.0" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5F2-Kh-5Eq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2379" y="1103"/>
+        </scene>
+        <!--Pie Chart View Controller-->
+        <scene sceneID="8lr-9h-4kO">
+            <objects>
+                <viewController id="jtw-01-dLX" customClass="PieChartViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fJE-yS-ht4"/>
+                        <viewControllerLayoutGuide type="bottom" id="PdA-1a-3zH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="104-jY-eaZ">
+                        <rect key="frame" x="0.0" y="0.0" width="316" height="316"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i0U-3f-8QA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2458" y="235"/>
+        </scene>
+        <!--Bar Chart View Controller-->
+        <scene sceneID="Zxr-7h-WNF">
+            <objects>
+                <viewController id="q6v-NO-JtW" customClass="BarChartViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ANx-UQ-D3x"/>
+                        <viewControllerLayoutGuide type="bottom" id="VoS-rI-mTO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ysT-6E-uar">
+                        <rect key="frame" x="0.0" y="0.0" width="316" height="316"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3rv-Rc-wwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2466" y="-201"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
