@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7A480A1E181567540085A8EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A480A18181567540085A8EC /* AppDelegate.m */; };
 		7A480A251815679F0085A8EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A480A221815679F0085A8EC /* main.m */; };
+		7A7D09C3181AB315009D851C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A7D09C2181AB315009D851C /* QuartzCore.framework */; };
 		7A9BFCB618197676008F6F16 /* Relationship.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BFCB518197676008F6F16 /* Relationship.m */; };
 		7A9BFCB91819A857008F6F16 /* Building.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BFCB81819A857008F6F16 /* Building.m */; };
 		7A9BFCBC1819D1E1008F6F16 /* UIView+Glow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BFCBB1819D1E1008F6F16 /* UIView+Glow.m */; };
@@ -90,6 +91,7 @@
 		7A480A221815679F0085A8EC /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = MyHometown/main.m; sourceTree = SOURCE_ROOT; };
 		7A480A231815679F0085A8EC /* MyHometown-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "MyHometown-Info.plist"; path = "MyHometown/MyHometown-Info.plist"; sourceTree = SOURCE_ROOT; };
 		7A480A241815679F0085A8EC /* MyHometown-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MyHometown-Prefix.pch"; path = "MyHometown/MyHometown-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		7A7D09C2181AB315009D851C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7A9BFCB21819675F008F6F16 /* ToolboxViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolboxViewControllerDelegate.h; sourceTree = "<group>"; };
 		7A9BFCB418197676008F6F16 /* Relationship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Relationship.h; sourceTree = "<group>"; };
 		7A9BFCB518197676008F6F16 /* Relationship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Relationship.m; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A7D09C3181AB315009D851C /* QuartzCore.framework in Frameworks */,
 				7AB4CC0D1811FC4600235A8E /* CoreGraphics.framework in Frameworks */,
 				7AB4CC111811FC4600235A8E /* CoreData.framework in Frameworks */,
 				7AB4CC0F1811FC4600235A8E /* UIKit.framework in Frameworks */,
@@ -246,6 +249,13 @@
 				7A480A241815679F0085A8EC /* MyHometown-Prefix.pch */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7A7D09C4181ACA0B009D851C /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		7A9BFCB318197633008F6F16 /* Custom Views */ = {
@@ -284,6 +294,7 @@
 		7AB4CC091811FC4600235A8E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7A7D09C2181AB315009D851C /* QuartzCore.framework */,
 				7AB4CC0A1811FC4600235A8E /* Foundation.framework */,
 				7AB4CC0C1811FC4600235A8E /* CoreGraphics.framework */,
 				7AB4CC0E1811FC4600235A8E /* UIKit.framework */,
@@ -451,6 +462,7 @@
 		7ADF720F18156A18000A6838 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7A7D09C4181ACA0B009D851C /* Detail */,
 				7ADF779F18157DE9000A6838 /* General */,
 				7ADF77A218157DE9000A6838 /* Main */,
 				7ADF77A518157DE9000A6838 /* Toolbox */,

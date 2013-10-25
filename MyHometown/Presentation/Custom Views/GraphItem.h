@@ -13,7 +13,7 @@ typedef enum {
     GraphItemInteractionStateSelected
 }GraphItemInteractionState;
 
-@interface GraphItem : UIView
+@interface GraphItem : UIButton
 
 @property (nonatomic) GraphItemInteractionState interactionState;
 

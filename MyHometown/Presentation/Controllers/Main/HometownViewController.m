@@ -27,10 +27,6 @@ typedef enum {
 @interface HometownViewController ()
 
 @property (strong, nonatomic) UITapGestureRecognizer *buildingAdditionGestureRecognizer;
-@property (strong, nonatomic) UITapGestureRecognizer *relationshipAdditionGestureRecognizer;
-
-@property (strong, nonatomic) UITapGestureRecognizer *buildingRemovalGestureRecognizer;
-@property (strong, nonatomic) UITapGestureRecognizer *relationshipRemovalGestureRecognizer;
 
 @property (strong, nonatomic) ToolboxAnimator *toolboxAnimator;
 @property (nonatomic) SelectedActionType selectedAction;
@@ -46,9 +42,12 @@ typedef enum {
 @property (strong, nonatomic) NSMutableArray *relationships;
 
 - (void)addNewBuilding:(UITapGestureRecognizer *)gestureRecognizer;
-- (void)addNewRelationship:(UITapGestureRecognizer *)gestureRecognizer;
-- (void)confirmBuildingRemoval:(UITapGestureRecognizer *)gestureRecognizer;
-- (void)confirmRelationshipRemoval:(UITapGestureRecognizer *)gestureRecognizer;
+
+- (void)buildingTapped:(Building *)sender;
+- (void)relationshipTapped:(Relationship *)sender;
+- (void)addNewRelationship:(Building *)tappedBuilding;
+- (void)confirmBuildingRemoval:(Building *)tappedBuilding;
+- (void)confirmRelationshipRemoval:(Relationship *)tappedRelationship;
 
 - (void)removeBuilding;
 - (void)removeRelationship:(Relationship *)relationship;
@@ -75,15 +74,6 @@ typedef enum {
     self.buildingAdditionGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addNewBuilding:)];
     self.buildingAdditionGestureRecognizer.numberOfTapsRequired = 1;
     
-    self.relationshipAdditionGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addNewRelationship:)];
-    self.relationshipAdditionGestureRecognizer.numberOfTapsRequired = 1;
-    
-    self.buildingRemovalGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(confirmBuildingRemoval:)];
-    self.buildingRemovalGestureRecognizer.numberOfTapsRequired = 1;
-    
-    self.relationshipRemovalGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(confirmRelationshipRemoval:)];
-    self.relationshipRemovalGestureRecognizer.numberOfTapsRequired = 1;
-    
     self.selectedAction = SelectedActionNone;
 }
 
@@ -102,9 +92,6 @@ typedef enum {
         _selectedAction = selectedAction;
         
         [self.view removeGestureRecognizer:self.buildingAdditionGestureRecognizer];
-        [self.view removeGestureRecognizer:self.relationshipAdditionGestureRecognizer];
-        [self.view removeGestureRecognizer:self.buildingRemovalGestureRecognizer];
-        [self.view removeGestureRecognizer:self.relationshipRemovalGestureRecognizer];
         
         self.tappedBuilding1 = nil;
         self.tappedBuilding2 = nil;
@@ -116,15 +103,12 @@ typedef enum {
                 self.instructionsLabel.text = @"Tap anywhere to add a new building";
                 break;
             case SelectedActionNewRelationship:
-                [self.view addGestureRecognizer:self.relationshipAdditionGestureRecognizer];
                 self.instructionsLabel.text = @"Tap 2 different buildings to add a relationship";
                 break;
             case SelectedActionRemoveBuilding:
-                [self.view addGestureRecognizer:self.buildingRemovalGestureRecognizer];
                 self.instructionsLabel.text = @"Tap a building to remove it";
                 break;
             case SelectedActionRemoveRelationship:
-                [self.view addGestureRecognizer:self.relationshipRemovalGestureRecognizer];
                 self.instructionsLabel.text = @"Tap a relationship to remove it";
             default:
                 break;
@@ -201,11 +185,83 @@ typedef enum {
 }
 
 #pragma mark -
-#pragma mark IBActions
+#pragma mark IBActions and Event Methods
 
 - (IBAction)toggleToolbox:(UIBarButtonItem *)sender {
     
     [self.toolboxAnimator toggleToolbox];
+}
+
+#pragma mark -
+#pragma mark Touch Events Methods
+
+- (void)buildingTapped:(Building *)sender {
+    if (self.selectedAction == SelectedActionRemoveBuilding) {
+        [self confirmBuildingRemoval:sender];
+    }
+    else if(self.selectedAction == SelectedActionNewRelationship) {
+        [self addNewRelationship:sender];
+    }
+}
+
+- (void)relationshipTapped:(Relationship *)sender {
+    if (self.selectedAction == SelectedActionRemoveRelationship) {
+        [self confirmRelationshipRemoval:sender];
+    }
+}
+
+- (void)addNewRelationship:(Building *)tappedBuilding {
+    if (!self.tappedBuilding1) {
+        self.tappedBuilding1 = tappedBuilding;
+        self.tappedBuilding1.interactionState = GraphItemInteractionStateSelected;
+    }
+    else if(!self.tappedBuilding2 && ![self.tappedBuilding1 isEqual:tappedBuilding]) {
+        self.tappedBuilding2 = tappedBuilding;
+        self.tappedBuilding2.interactionState = GraphItemInteractionStateSelected;
+    }
+    
+    if (self.tappedBuilding1 && self.tappedBuilding2) {
+        Relationship *relationship = [[Relationship alloc] initWithEnd1:self.tappedBuilding1 andEnd2:self.tappedBuilding2];
+        
+        [relationship addTarget:self action:@selector(relationshipTapped:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [self.view addSubview:relationship];
+        [self.relationships addObject:relationship];
+        [self.tappedBuilding1.relationships addObject:relationship];
+        [self.tappedBuilding2.relationships addObject:relationship];
+        
+        self.tappedBuilding1.interactionState = GraphItemInteractionStateNone;
+        self.tappedBuilding2.interactionState = GraphItemInteractionStateNone;
+        
+        self.tappedBuilding1 = nil;
+        self.tappedBuilding2 = nil;
+        
+        self.selectedAction = SelectedActionNone;
+        
+        [self rearrangeViews];
+    }
+}
+
+- (void)confirmBuildingRemoval:(Building *)tappedBuilding {
+    self.tappedBuilding1 = tappedBuilding;
+    //tappedBuilding.interactionState = GraphItemInteractionStateSelected;
+    
+    [[[UIAlertView alloc] initWithTitle:@"Confirmation"
+                                message:@"Do you really want to remove this building and its relationships?"
+                               delegate:self
+                      cancelButtonTitle:@"Ehh... No"
+                      otherButtonTitles:@"Yeah, sure", nil] show];
+}
+
+- (void)confirmRelationshipRemoval:(Relationship *)tappedRelationship {
+    self.tappedRelationship = tappedRelationship;
+    //tappedRelationship.interactionState = GraphItemInteractionStateSelected;
+    
+    [[[UIAlertView alloc] initWithTitle:@"Confirmation"
+                                message:@"Do you really want to remove this relationship?"
+                               delegate:self
+                      cancelButtonTitle:@"Ehh... No"
+                      otherButtonTitles:@"Yeah, sure", nil] show];
 }
 
 #pragma mark -
@@ -217,113 +273,14 @@ typedef enum {
     Building *newBuilding = [[Building alloc] initWithFrame:BUILDING_FRAME];
     newBuilding.center = location;
     
+    [newBuilding addTarget:self action:@selector(buildingTapped:) forControlEvents:UIControlEventTouchUpInside];
+    
     [self.view addSubview:newBuilding];
     [self.buildings addObject:newBuilding];
     
     self.selectedAction = SelectedActionNone;
     
     [self rearrangeViews];
-}
-
-- (void)addNewRelationship:(UITapGestureRecognizer *)gestureRecognizer {
-    
-    CGPoint location = [gestureRecognizer locationInView:self.view];
-    
-    Building *tappedBuilding = nil;
-    
-    for (Building *building in self.buildings)
-    {
-        if (CGRectContainsPoint(building.frame, location))
-        {
-            tappedBuilding = building;
-            break;
-        }
-    }
-    
-    if (tappedBuilding) {
-        if (!self.tappedBuilding1) {
-            self.tappedBuilding1 = tappedBuilding;
-            self.tappedBuilding1.interactionState = GraphItemInteractionStateSelected;
-        }
-        else if(!self.tappedBuilding2 && ![self.tappedBuilding1 isEqual:tappedBuilding]) {
-            self.tappedBuilding2 = tappedBuilding;
-            self.tappedBuilding2.interactionState = GraphItemInteractionStateSelected;
-        }
-        
-        if (self.tappedBuilding1 && self.tappedBuilding2) {
-            Relationship *relationship = [[Relationship alloc] initWithEnd1:self.tappedBuilding1 andEnd2:self.tappedBuilding2];
-            
-            [self.view addSubview:relationship];
-            [self.relationships addObject:relationship];
-            [self.tappedBuilding1.relationships addObject:relationship];
-            [self.tappedBuilding2.relationships addObject:relationship];
-            
-            self.tappedBuilding1.interactionState = GraphItemInteractionStateNone;
-            self.tappedBuilding2.interactionState = GraphItemInteractionStateNone;
-            
-            self.tappedBuilding1 = nil;
-            self.tappedBuilding2 = nil;
-            
-            self.selectedAction = SelectedActionNone;
-            
-            [self rearrangeViews];
-        }
-    }
-}
-
-- (void)confirmBuildingRemoval:(UITapGestureRecognizer *)gestureRecognizer {
-    
-    CGPoint location = [gestureRecognizer locationInView:self.view];
-    
-    Building *tappedBuilding = nil;
-    
-    for (Building *building in self.buildings)
-    {
-        if (CGRectContainsPoint(building.frame, location))
-        {
-            tappedBuilding = building;
-            break;
-        }
-    }
-    
-    if (tappedBuilding) {
-        self.tappedBuilding1 = tappedBuilding;
-        //tappedBuilding.interactionState = GraphItemInteractionStateSelected;
-        
-        [[[UIAlertView alloc] initWithTitle:@"Confirmation"
-                                    message:@"Do you really want to remove this building and its relationships?"
-                                   delegate:self
-                          cancelButtonTitle:@"Ehh... No"
-                          otherButtonTitles:@"Yeah, sure", nil] show];
-    }
-}
-
-- (void)confirmRelationshipRemoval:(UITapGestureRecognizer *)gestureRecognizer {
-    
-    CGPoint location = [gestureRecognizer locationInView:self.view];
-    
-    Relationship *tappedRelationship = nil;
-    
-    
-    for (Relationship *relationship in self.relationships)
-    {
-        if (CGRectContainsPoint(relationship.frame, location))
-        {
-            tappedRelationship = relationship;
-            break;
-        }
-    }
-    
-    if (tappedRelationship) {
-        self.tappedRelationship = tappedRelationship;
-        //tappedRelationship.interactionState = GraphItemInteractionStateSelected;
-        
-        [[[UIAlertView alloc] initWithTitle:@"Confirmation"
-                                    message:@"Do you really want to remove this relationship?"
-                                   delegate:self
-                          cancelButtonTitle:@"Ehh... No"
-                          otherButtonTitles:@"Yeah, sure", nil] show];
-    }
 }
 
 #pragma mark -
