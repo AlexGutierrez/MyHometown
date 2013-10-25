@@ -9,3 +9,4 @@
 #define TOOLBOX_VIEWCONTROLLER @"ToolboxViewController"
 
 #define TOOLBOX_SEGUE @"ToolboxSegue"
+#define DETAIL_SEGUE @"DetailSegue"

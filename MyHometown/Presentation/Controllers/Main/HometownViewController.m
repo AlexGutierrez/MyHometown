@@ -202,6 +202,9 @@ typedef enum {
     else if(self.selectedAction == SelectedActionNewRelationship) {
         [self addNewRelationship:sender];
     }
+    else if (self.selectedAction == SelectedActionNone) {
+        [self performSegueWithIdentifier:DETAIL_SEGUE sender:self];
+    }
 }
 
 - (void)relationshipTapped:(Relationship *)sender {

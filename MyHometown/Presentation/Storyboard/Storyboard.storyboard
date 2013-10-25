@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Custom Transition Navigation Controller-->
         <scene sceneID="gYb-YJ-xdp">
             <objects>
-                <navigationController definesPresentationContext="YES" id="9ji-eC-0dU" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" id="9ji-eC-0dU" customClass="CustomTransitionNavigationController" sceneMemberID="viewController">
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XqD-xH-hxu">
                         <autoresizingMask key="autoresizingMask"/>
@@ -71,6 +71,7 @@
                     <connections>
                         <outlet property="instructionsLabel" destination="Zsx-hu-O00" id="HY4-DY-U02"/>
                         <outlet property="toolboxContainerView" destination="sXs-JE-brC" id="ATb-70-OiG"/>
+                        <segue destination="cKC-B7-89h" kind="push" identifier="DetailSegue" id="0xy-OK-6FY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JYy-9X-MDi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -171,7 +172,27 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qVE-EI-jUC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1128" y="-556"/>
+            <point key="canvasLocation" x="1126" y="-892"/>
+        </scene>
+        <!--View Controller - Building Details-->
+        <scene sceneID="RUe-Nm-25S">
+            <objects>
+                <viewController id="cKC-B7-89h" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PrN-iI-Q9q"/>
+                        <viewControllerLayoutGuide type="bottom" id="bwf-yt-Tsk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Gke-OO-zb0">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Building Details" id="LP0-Yd-u43"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OC5-Rg-8q4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1126" y="-29"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
